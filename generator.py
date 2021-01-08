@@ -22,6 +22,7 @@ import os
 import re
 import random
 import sys
+import yaml
 
 from grammar import Grammar
 
@@ -319,7 +320,7 @@ def check_grammar(grammar):
                 print('No creators for type ' + tagname)
 
 
-def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar):
+def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
     """Parses grammar rules from string.
 
     Args:
@@ -368,6 +369,66 @@ def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar):
 
     return result
 
+def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, cssgrammar, jsgrammar, outfile):
+    """Parses grammar rules from string.
+
+    Args:
+      template: A template string.
+      grammar: Grammar for generating iframe.
+
+    Returns:
+      A string containing sample data.
+    """
+
+    child = generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar)
+
+    result = iframe_template
+    iframe = '<iframe name="target_iframe"'
+    for attribute in iframe_grammar["attributes"]:
+        if attribute == "sandbox":
+            length = len(iframe_grammar["attributes"][attribute])
+            count = random.randrange(length + 1)
+
+            if count > 0:
+                print(f"{count}/{length}")
+                arr = random.sample(iframe_grammar["attributes"][attribute], count)
+                iframe = iframe + f' {attribute}="{" ".join(arr)}"'
+
+        else:
+            # skip attribute
+            if bool(random.getrandbits(1)):
+                continue
+
+            iframe = iframe + f' {attribute}="{random.choice(iframe_grammar["attributes"][attribute])}"'
+
+    # src / srcdoc
+    # if bool(random.getrandbits(1)):
+    #     pass
+    child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
+    iframe = iframe + f' src="{child_outfile}"'
+
+    if child is not None:
+        print('Writing a sample to ' + child_outfile)
+        try:
+            f = open(child_outfile, 'w')
+            f.write(child)
+            f.close()
+        except IOError:
+            print('Error writing to output')
+
+
+    iframe = iframe + "></iframe>"
+    result = result.replace('<iframefuzzer>', iframe)
+
+    if result is not None:
+        print('Writing a sample to ' + outfile)
+        try:
+            f = open(outfile, 'w')
+            f.write(result)
+            f.close()
+        except IOError:
+            print('Error writing to output')
+    
 
 def generate_samples(grammar_dir, outfiles):
     """Generates a set of samples and writes them to the output files.
@@ -377,9 +438,16 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
+    f = open(os.path.join(grammar_dir, 'iframe_template.html'))
+    iframe_template = f.read()
+    f.close()
+
     f = open(os.path.join(grammar_dir, 'template.html'))
     template = f.read()
     f.close()
+
+    with open(os.path.join(grammar_dir, 'iframe.yaml')) as f:
+        iframe_grammar = yaml.load(f)
 
     htmlgrammar = Grammar()
     err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
@@ -408,17 +476,7 @@ def generate_samples(grammar_dir, outfiles):
     jsgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
-        result = generate_new_sample(template, htmlgrammar, cssgrammar,
-                                     jsgrammar)
-
-        if result is not None:
-            print('Writing a sample to ' + outfile)
-            try:
-                f = open(outfile, 'w')
-                f.write(result)
-                f.close()
-            except IOError:
-                print('Error writing to output')
+        generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, cssgrammar, jsgrammar, outfile)
 
 
 def get_option(option_name):
