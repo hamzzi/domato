@@ -390,7 +390,7 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
             count = random.randrange(length + 1)
 
             if count > 0:
-                print(f"{count}/{length}")
+                # print(f"{count}/{length}")
                 arr = random.sample(iframe_grammar["attributes"][attribute], count)
                 iframe = iframe + f' {attribute}="{" ".join(arr)}"'
 
@@ -405,7 +405,7 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
     # if bool(random.getrandbits(1)):
     #     pass
     child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
-    iframe = iframe + f' src="{child_outfile}"'
+    iframe = iframe + f' src="{os.path.basename(child_outfile)}"'
 
     if child is not None:
         print('Writing a sample to ' + child_outfile)

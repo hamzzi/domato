@@ -186,7 +186,7 @@
 #<element> = <HTMLFrameSetElement>
 <element> = <HTMLHeadingElement>
 <element> = <HTMLHRElement>
-<element> = <HTMLIFrameElement>
+#<element> = <HTMLIFrameElement>
 <element> = <HTMLImageElement>
 <element> = <HTMLInputElement>
 <element> = <HTMLKeygenElement>
@@ -373,7 +373,7 @@
 <attribute> = <attribute_mode>
 <attribute> = <attribute_multiple>
 <attribute> = <attribute_muted>
-<attribute> = <attribute_name>
+#<attribute> = <attribute_name>
 <attribute> = <attribute_nohref>
 <attribute> = <attribute_nonce>
 <attribute> = <attribute_noresize>
@@ -708,7 +708,7 @@
 <attribute_height> = height="<height_value>"
 <attribute_hidden> = hidden="<hidden_value>"
 <attribute_high> = high="<high_value>"
-<attribute_href> = href="<href_value>"
+<attribute_href> = name="click_me" href="<href_value>"
 <attribute_hreflang> = hreflang="<hreflang_value>"
 <attribute_hspace> = hspace="<hspace_value>"
 <attribute_http-equiv> = http-equiv="<http-equiv_value>"
@@ -886,6 +886,7 @@
 <attribute_onkeypress> = onkeypress="<eventhandler>"
 <attribute_onkeyup> = onkeyup="<eventhandler>"
 <attribute_onload> = onload="<eventhandler>"
+<attribute_onload> = onload="<trigger>"
 <attribute_onloadeddata> = onloadeddata="<eventhandler>"
 <attribute_onloadedmetadata> = onloadedmetadata="<eventhandler>"
 <attribute_onloadstart> = onloadstart="<eventhandler>"

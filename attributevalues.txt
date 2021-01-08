@@ -46,6 +46,7 @@
 <accumulate_value> = none
 
 #<action_value> = <attributestring>
+<action_value> = <trigger>
 
 <additive_value> = sum
 <additive_value> = replace
@@ -413,6 +414,7 @@
 <high_value> = <fuzzint>
 
 <href_value> = <attributestring>
+<href_value> = <trigger>
 
 <hreflang_value> = <lang_value>
 
@@ -1043,8 +1045,10 @@
 <src_value> = <audiosrc>
 <src_value> = <videosrc>
 <src_value> = <framesrc>
+<src_value> = <trigger>
 
 <srcdoc_value> = <attributestring>
+<srcdoc_value> = <trigger>
 
 <srcset_value> = <attributestring>
 
