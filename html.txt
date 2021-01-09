@@ -16,6 +16,7 @@
 
 <framesrc> = x
 <framesrc> = data:text/html,foo
+<framesrc> = <challenge_trigger_src>
 
 <attribute_imgsrc> = src="<imgsrc>"
 <attribute_videosrc> = src="<videosrc>"
@@ -58,6 +59,7 @@
 <headelements> = <htmlsafestring min=32 max=126>
 
 <innerelements nonrecursive=true p=0.5> = <htmlsafestring min=32 max=126>
+<innerelements> = <newline><attributestring><newline>
 <innerelements> = <newline><element><newline>
 <innerelements> = <newline><element><newline><element><newline>
 
@@ -162,6 +164,7 @@
 <eventhandler> = eventhandler3()
 <eventhandler> = eventhandler4()
 <eventhandler> = eventhandler5()
+<eventhandler> = <challenge_trigger_js_function>
 
 <element> = <HTMLAnchorElement>
 #<element> = <HTMLAppletElement>
@@ -886,7 +889,7 @@
 <attribute_onkeypress> = onkeypress="<eventhandler>"
 <attribute_onkeyup> = onkeyup="<eventhandler>"
 <attribute_onload> = onload="<eventhandler>"
-<attribute_onload> = onload="<trigger>"
+<attribute_onload> = onload="<challenge_trigger_js_function>"
 <attribute_onloadeddata> = onloadeddata="<eventhandler>"
 <attribute_onloadedmetadata> = onloadedmetadata="<eventhandler>"
 <attribute_onloadstart> = onloadstart="<eventhandler>"

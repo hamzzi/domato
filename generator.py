@@ -24,10 +24,11 @@ import random
 import sys
 import yaml
 
-from grammar import Grammar
+# from grammar import Grammar
+from tools.domato.grammar import Grammar
 
-_N_MAIN_LINES = 1000
-_N_EVENTHANDLER_LINES = 500
+_N_MAIN_LINES = 100
+_N_EVENTHANDLER_LINES = 50
 
 _N_ADDITIONAL_HTMLVARS = 5
 
@@ -402,20 +403,22 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
             iframe = iframe + f' {attribute}="{random.choice(iframe_grammar["attributes"][attribute])}"'
 
     # src / srcdoc
-    # if bool(random.getrandbits(1)):
-    #     pass
-    child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
-    iframe = iframe + f' src="{os.path.basename(child_outfile)}"'
+    if bool(random.getrandbits(1)):
+        child = child.replace('"', "&quot;")
+        iframe = iframe + f' srcdoc="{child}"'
 
-    if child is not None:
-        print('Writing a sample to ' + child_outfile)
-        try:
-            f = open(child_outfile, 'w')
-            f.write(child)
-            f.close()
-        except IOError:
-            print('Error writing to output')
+    else:
+        child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
+        iframe = iframe + f' src="{os.path.basename(child_outfile)}"'
 
+        if child is not None:
+            print('Writing a sample to ' + child_outfile)
+            try:
+                f = open(child_outfile, 'w')
+                f.write(child)
+                f.close()
+            except IOError:
+                print('Error writing to output')
 
     iframe = iframe + "></iframe>"
     result = result.replace('<iframefuzzer>', iframe)

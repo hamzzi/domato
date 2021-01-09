@@ -46,7 +46,7 @@
 <accumulate_value> = none
 
 #<action_value> = <attributestring>
-<action_value> = <trigger>
+<action_value> = <challenge_trigger_js_function>
 
 <additive_value> = sum
 <additive_value> = replace
@@ -414,7 +414,7 @@
 <high_value> = <fuzzint>
 
 <href_value> = <attributestring>
-<href_value> = <trigger>
+<href_value> = <challenge_trigger_href>
 
 <hreflang_value> = <lang_value>
 
@@ -1045,10 +1045,10 @@
 <src_value> = <audiosrc>
 <src_value> = <videosrc>
 <src_value> = <framesrc>
-<src_value> = <trigger>
+<src_value> = <challenge_trigger_src>
 
 <srcdoc_value> = <attributestring>
-<srcdoc_value> = <trigger>
+<srcdoc_value> = <challenge_trigger_srcdoc>
 
 <srcset_value> = <attributestring>
 
@@ -1071,6 +1071,11 @@
 <tabindex_value> = <fuzzint>
 
 <target_value> = <elementid>
+<target_value> = _blank
+<target_value> = _self
+<target_value> = _parent
+<target_value> = _top
+
 
 <text_value> = <color>
 
