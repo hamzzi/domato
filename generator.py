@@ -390,10 +390,13 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
             length = len(iframe_grammar["attributes"][attribute])
             count = random.randrange(length + 1)
 
-            if count > 0:
-                # print(f"{count}/{length}")
-                arr = random.sample(iframe_grammar["attributes"][attribute], count)
-                iframe = iframe + f' {attribute}="{" ".join(arr)}"'
+            # if count > 0:
+            # print(f"{count}/{length}")
+            arr = random.sample(iframe_grammar["attributes"][attribute], count)
+            if "allow-scripts" not in arr:
+                arr.append("allow-scripts")
+            iframe = iframe + f' {attribute}="{" ".join(arr)}"'
+            # iframe = iframe + f' {attribute}="allow-scripts"'
 
         else:
             # skip attribute

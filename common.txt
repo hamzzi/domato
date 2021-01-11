@@ -290,6 +290,8 @@
 
 # challenge trigger
 <challenge_trigger_log> = console.log(flag);console.log(document.cookie);
+<challenge_trigger_log> = console.log(window.parent.flag);console.log(document.cookie);
+
 
 <challenge_trigger_href> = <challenge_trigger_src>
 <challenge_trigger_src> = <challenge_trigger_js_src>
