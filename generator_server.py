@@ -406,22 +406,22 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
             iframe = iframe + f' {attribute}="{random.choice(iframe_grammar["attributes"][attribute])}"'
 
     # src / srcdoc
-    if bool(random.getrandbits(1)):
-        child = child.replace('"', "&quot;")
-        iframe = iframe + f' srcdoc="{child}"'
+    # if bool(random.getrandbits(1)):
+    #     child = child.replace('"', "&quot;")
+    #     iframe = iframe + f' srcdoc="{child}"'
 
-    else:
-        child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
-        iframe = iframe + f' src="{os.path.basename(child_outfile)}"'
+    # else:
+    child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
+    iframe = iframe + f' src="http://127.0.0.1:8000/{os.path.basename(child_outfile)}"'
 
-        if child is not None:
-            print('Writing a sample to ' + child_outfile)
-            try:
-                f = open(child_outfile, 'w')
-                f.write(child)
-                f.close()
-            except IOError:
-                print('Error writing to output')
+    if child is not None:
+        print('Writing a sample to ' + child_outfile)
+        try:
+            f = open(child_outfile, 'w')
+            f.write(child)
+            f.close()
+        except IOError:
+            print('Error writing to output')
 
     iframe = iframe + "></iframe>"
     result = result.replace('<iframefuzzer>', iframe)
