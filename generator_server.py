@@ -412,7 +412,7 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
 
     # else:
     child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
-    iframe = iframe + f' src="http://127.0.0.1:8000/{os.path.basename(child_outfile)}"'
+    iframe = iframe + f' src="http://147.46.125.79:8000/{os.path.basename(child_outfile)}"'
 
     if child is not None:
         print('Writing a sample to ' + child_outfile)

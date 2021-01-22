@@ -28,6 +28,7 @@ runcount["jsfuzzer"]++; if(runcount["jsfuzzer"] > 2) { return; }
 <jsfuzzer>
 console.log('UXSSFUZZ');
 console.log(document.location.origin);
+console.log(window.origin);
 console.log(flag);
 console.log(document.cookie);
 }
@@ -40,6 +41,7 @@ runcount["eventhandler1"]++; if(runcount["eventhandler1"] > 2) { return; }
 
 console.log('UXSSFUZZ');
 console.log(document.location.origin);
+console.log(window.origin);
 console.log(flag);
 console.log(document.cookie);
 }
@@ -52,6 +54,7 @@ runcount["eventhandler2"]++; if(runcount["eventhandler2"] > 2) { return; }
 
 console.log('UXSSFUZZ');
 console.log(document.location.origin);
+console.log(window.origin);
 console.log(flag);
 console.log(document.cookie);
 }
@@ -64,6 +67,7 @@ runcount["eventhandler3"]++; if(runcount["eventhandler3"] > 2) { return; }
 
 console.log('UXSSFUZZ');
 console.log(document.location.origin);
+console.log(window.origin);
 console.log(flag);
 console.log(document.cookie);
 }
@@ -76,6 +80,7 @@ runcount["eventhandler4"]++; if(runcount["eventhandler4"] > 2) { return; }
 
 console.log('UXSSFUZZ');
 console.log(document.location.origin);
+console.log(window.origin);
 console.log(flag);
 console.log(document.cookie);
 }
@@ -88,6 +93,7 @@ runcount["eventhandler5"]++; if(runcount["eventhandler5"] > 2) { return; }
 
 console.log('UXSSFUZZ');
 console.log(document.location.origin);
+console.log(window.origin);
 console.log(flag);
 console.log(document.cookie);
 }
@@ -97,8 +103,11 @@ console.log(document.cookie);
 <body onload=jsfuzzer()>
 <!--beginhtml--><htmlfuzzer><!--endhtml-->
 <script>
-console.log(flag)
-console.log(document.cookie)
+console.log('UXSSFUZZ');
+console.log(document.location.origin);
+console.log(window.origin);
+console.log(flag);
+console.log(document.cookie);
 </script>
 </body>
 </html>

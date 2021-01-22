@@ -297,10 +297,10 @@
 # challenge trigger
 <challenge_trigger_log> = console.log('UXSSFUZZ');console.log(flag);console.log(document.cookie);
 <challenge_trigger_log> = console.log('UXSSFUZZ');console.log(window.parent.flag);console.log(document.cookie);
-<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(document.location.origin);console.log(document.cookie);
-
+<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(document.location.origin);console.log(window.origin);console.log(document.cookie);
 
 <challenge_trigger_href> = <challenge_trigger_src>
+#<challenge_trigger_href> = http://147.46.125.79:8001/
 <challenge_trigger_src> = <challenge_trigger_js_src>
 <challenge_trigger_src> = <challenge_trigger_html_src>
 
@@ -308,8 +308,10 @@
 
 <challenge_trigger_js_src> = javascript:window.opener.eval('<challenge_trigger_log>')
 <challenge_trigger_js_src> = javascript:window.opener.parent.eval('<challenge_trigger_log>')
+<challenge_trigger_js_src> = javascript:<challenge_trigger_log>
 
 <challenge_trigger_html_src> = data:text/html,<challenge_trigger_html_srcdoc>
+<challenge_trigger_html_src> = data:text/javascript,<challenge_trigger_log>
 <challenge_trigger_html_srcdoc> = <lt>script<gt><challenge_trigger_log><lt>/script<gt>
 
 <challenge_trigger_js_function> = function () {<challenge_trigger_log>}()
