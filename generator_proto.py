@@ -27,7 +27,7 @@ import yaml
 # from grammar import Grammar
 from tools.domato.grammar import Grammar
 
-_N_MAIN_LINES = 100
+_N_MAIN_LINES = 10
 _N_EVENTHANDLER_LINES = 50
 
 _N_ADDITIONAL_HTMLVARS = 5
@@ -370,7 +370,7 @@ def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
 
     return result
 
-def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, cssgrammar, jsgrammar, outfile):
+def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar, outfile):
     """Parses grammar rules from string.
 
     Args:
@@ -381,56 +381,13 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
       A string containing sample data.
     """
 
-    child = generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar)
+    html = generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar)
 
-    result = iframe_template
-    iframe = '<iframe name="target_iframe"'
-    for attribute in iframe_grammar["attributes"]:
-        if attribute == "sandbox":
-            length = len(iframe_grammar["attributes"][attribute])
-            count = random.randrange(length + 1)
-
-            # if count > 0:
-            # print(f"{count}/{length}")
-            arr = random.sample(iframe_grammar["attributes"][attribute], count)
-            # if "allow-scripts" not in arr:
-            #     arr.append("allow-scripts")
-            iframe = iframe + f' {attribute}="{" ".join(arr)}"'
-            # iframe = iframe + f' {attribute}="allow-scripts"'
-
-        else:
-            # skip attribute
-            if bool(random.getrandbits(1)):
-                continue
-
-            iframe = iframe + f' {attribute}="{random.choice(iframe_grammar["attributes"][attribute])}"'
-
-    # src / srcdoc
-    # if bool(random.getrandbits(1)):
-    #     child = child.replace('"', "&quot;")
-    #     iframe = iframe + f' srcdoc="{child}"'
-
-    # else:
-    child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
-    iframe = iframe + f' src="http://127.0.0.1:8000/{os.path.basename(child_outfile)}"'
-
-    if child is not None:
-        print('Writing a sample to ' + child_outfile)
-        try:
-            f = open(child_outfile, 'w')
-            f.write(child)
-            f.close()
-        except IOError:
-            print('Error writing to output')
-
-    iframe = iframe + "></iframe>"
-    result = result.replace('<iframefuzzer>', iframe)
-
-    if result is not None:
+    if html is not None:
         print('Writing a sample to ' + outfile)
         try:
             f = open(outfile, 'w')
-            f.write(result)
+            f.write(html)
             f.close()
         except IOError:
             print('Error writing to output')
@@ -444,16 +401,9 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'iframe_template.html'))
-    iframe_template = f.read()
-    f.close()
-
-    f = open(os.path.join(grammar_dir, 'template.html'))
+    f = open(os.path.join(grammar_dir, 'html_template.html'))
     template = f.read()
     f.close()
-
-    with open(os.path.join(grammar_dir, 'iframe.yaml')) as f:
-        iframe_grammar = yaml.load(f)
 
     htmlgrammar = Grammar()
     err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
@@ -482,7 +432,7 @@ def generate_samples(grammar_dir, outfiles):
     jsgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
-        generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, cssgrammar, jsgrammar, outfile)
+        generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar, outfile)
 
 
 def get_option(option_name):

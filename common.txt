@@ -295,9 +295,10 @@
 <fuzzer_src> = static/s.svg
 
 # challenge trigger
-<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(flag);console.log(document.cookie);
-<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(window.parent.flag);console.log(document.cookie);
-<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(document.location.origin);console.log(window.origin);console.log(document.cookie);
+#<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(flag);console.log(document.cookie);
+#<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(window.parent.flag);console.log(document.cookie);
+#<challenge_trigger_log> = console.log('UXSSFUZZ');console.log(document.location.origin);console.log(window.origin);console.log(document.cookie);
+<challenge_trigger_log> = console.log(location.origin)
 
 <challenge_trigger_href> = <challenge_trigger_src>
 #<challenge_trigger_href> = http://147.46.125.79:8001/

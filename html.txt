@@ -55,7 +55,7 @@
 
 <attributes> = <attribute> <attribute> <attribute> <attribute> <attribute>
 
-<bodyelements> = <newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline>
+<bodyelements> = <newline><element><newline><element><newline><HTMLIFrameElement><newline><element><newline><element><newline>
 <headelements> = <htmlsafestring min=32 max=126>
 
 <innerelements nonrecursive=true p=0.5> = <htmlsafestring min=32 max=126>
@@ -161,10 +161,10 @@
 
 <eventhandler> = eventhandler1()
 <eventhandler> = eventhandler2()
-<eventhandler> = eventhandler3()
-<eventhandler> = eventhandler4()
-<eventhandler> = eventhandler5()
-<eventhandler> = <challenge_trigger_js_function>
+#<eventhandler> = eventhandler3()
+#<eventhandler> = eventhandler4()
+#<eventhandler> = eventhandler5()
+#<eventhandler> = <challenge_trigger_js_function>
 
 <element> = <HTMLAnchorElement>
 #<element> = <HTMLAppletElement>
@@ -189,7 +189,7 @@
 #<element> = <HTMLFrameSetElement>
 <element> = <HTMLHeadingElement>
 <element> = <HTMLHRElement>
-#<element> = <HTMLIFrameElement>
+<element> = <HTMLIFrameElement>
 <element> = <HTMLImageElement>
 <element> = <HTMLInputElement>
 <element> = <HTMLKeygenElement>
