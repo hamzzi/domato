@@ -22,92 +22,62 @@ function GetVariable(fuzzervars, var_type) { if(fuzzervars[var_type]) { return f
 function SetVariable(fuzzervars, var_name, var_type) { fuzzervars[var_type] = var_name; }
 
 function jsfuzzer() {
-console.log('UXSSFUZZ');
+
 runcount["jsfuzzer"]++; if(runcount["jsfuzzer"] > 2) { return; }
 
 <jsfuzzer>
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
+
 }
 
 function eventhandler1() {
-console.log('UXSSFUZZ');
+
 runcount["eventhandler1"]++; if(runcount["eventhandler1"] > 2) { return; }
 
 <jsfuzzer>
 
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
 }
 
 function eventhandler2() {
-console.log('UXSSFUZZ');
+
 runcount["eventhandler2"]++; if(runcount["eventhandler2"] > 2) { return; }
 
 <jsfuzzer>
 
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
 }
 
 function eventhandler3() {
-console.log('UXSSFUZZ');
+
 runcount["eventhandler3"]++; if(runcount["eventhandler3"] > 2) { return; }
 
 <jsfuzzer>
 
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
 }
 
 function eventhandler4() {
-console.log('UXSSFUZZ');
+
 runcount["eventhandler4"]++; if(runcount["eventhandler4"] > 2) { return; }
 
 <jsfuzzer>
 
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
 }
 
 function eventhandler5() {
-console.log('UXSSFUZZ');
+
 runcount["eventhandler5"]++; if(runcount["eventhandler5"] > 2) { return; }
 
 <jsfuzzer>
 
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
 }
 
 </script>
 </head>
 <body onload=jsfuzzer()>
+<script>
+<jsfuzzer>
+</script>
 <!--beginhtml--><htmlfuzzer><!--endhtml-->
 <script>
-console.log('UXSSFUZZ');
-console.log(document.location.origin);
-console.log(window.origin);
-console.log(flag);
-console.log(document.cookie);
+<jsfuzzer>
 </script>
 </body>
 </html>

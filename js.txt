@@ -14,7 +14,7 @@
 
 <root root=true> = <lines count=1000>
 
-!lineguard try { <line> } catch(e) { console.log(location.origin) }
+!lineguard try { <line> } catch(e) { }
 
 !include common.txt
 !include jshelpers.txt

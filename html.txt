@@ -16,7 +16,6 @@
 
 <framesrc> = x
 <framesrc> = data:text/html,foo
-<framesrc> = <challenge_trigger_src>
 
 <attribute_imgsrc> = src="<imgsrc>"
 <attribute_videosrc> = src="<videosrc>"
@@ -55,11 +54,10 @@
 
 <attributes> = <attribute> <attribute> <attribute> <attribute> <attribute>
 
-<bodyelements> = <newline><element><newline><element><newline><HTMLIFrameElement><newline><element><newline><element><newline>
+<bodyelements> = <newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline>
 <headelements> = <htmlsafestring min=32 max=126>
 
 <innerelements nonrecursive=true p=0.5> = <htmlsafestring min=32 max=126>
-<innerelements> = <newline><attributestring><newline>
 <innerelements> = <newline><element><newline>
 <innerelements> = <newline><element><newline><element><newline>
 
@@ -161,10 +159,9 @@
 
 <eventhandler> = eventhandler1()
 <eventhandler> = eventhandler2()
-#<eventhandler> = eventhandler3()
-#<eventhandler> = eventhandler4()
-#<eventhandler> = eventhandler5()
-#<eventhandler> = <challenge_trigger_js_function>
+<eventhandler> = eventhandler3()
+<eventhandler> = eventhandler4()
+<eventhandler> = eventhandler5()
 
 <element> = <HTMLAnchorElement>
 #<element> = <HTMLAppletElement>
@@ -376,7 +373,7 @@
 <attribute> = <attribute_mode>
 <attribute> = <attribute_multiple>
 <attribute> = <attribute_muted>
-#<attribute> = <attribute_name>
+<attribute> = <attribute_name>
 <attribute> = <attribute_nohref>
 <attribute> = <attribute_nonce>
 <attribute> = <attribute_noresize>
@@ -711,7 +708,7 @@
 <attribute_height> = height="<height_value>"
 <attribute_hidden> = hidden="<hidden_value>"
 <attribute_high> = high="<high_value>"
-<attribute_href> = name="click_me" href="<href_value>"
+<attribute_href> = href="<href_value>"
 <attribute_hreflang> = hreflang="<hreflang_value>"
 <attribute_hspace> = hspace="<hspace_value>"
 <attribute_http-equiv> = http-equiv="<http-equiv_value>"
@@ -889,7 +886,6 @@
 <attribute_onkeypress> = onkeypress="<eventhandler>"
 <attribute_onkeyup> = onkeyup="<eventhandler>"
 <attribute_onload> = onload="<eventhandler>"
-<attribute_onload> = onload="<challenge_trigger_js_function>"
 <attribute_onloadeddata> = onloadeddata="<eventhandler>"
 <attribute_onloadedmetadata> = onloadedmetadata="<eventhandler>"
 <attribute_onloadstart> = onloadstart="<eventhandler>"
@@ -1063,7 +1059,7 @@
 <otherelement> = <lt>ruby <ruby_attributes> <attributes><gt><innerelements><lt>/ruby<gt>
 <otherelement> = <lt>s <s_attributes> <attributes><gt><innerelements><lt>/s<gt>
 <otherelement> = <lt>samp <samp_attributes> <attributes><gt><innerelements><lt>/samp<gt>
-#<HTMLScriptElement> = <lt>script <script_attributes> <attributes><gt><innerelements><lt>/script<gt>
+<HTMLScriptElement> = <lt>script <script_attributes> <attributes><gt><innerelements><lt>/script<gt>
 <otherelement> = <lt>section <section_attributes> <attributes><gt><innerelements><lt>/section<gt>
 <HTMLSelectElement> = <lt>select <select_attributes> <attributes><gt><selectchildren><lt>/select<gt>
 <HTMLShadowElement> = <lt>shadow <attributes><gt><innerelements><lt>/shadow<gt>

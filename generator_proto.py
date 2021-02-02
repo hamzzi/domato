@@ -401,7 +401,7 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'html_template.html'))
+    f = open(os.path.join(grammar_dir, 'template.html'))
     template = f.read()
     f.close()
 
