@@ -321,7 +321,7 @@ def check_grammar(grammar):
                 print('No creators for type ' + tagname)
 
 
-def generate_html_sample(template, htmlgrammar, cssgrammar):
+def generate_html_sample(template, htmlgrammar):
     """Parses grammar rules from string.
 
     Args:
@@ -336,8 +336,7 @@ def generate_html_sample(template, htmlgrammar, cssgrammar):
 
     result = template
 
-    css = cssgrammar.generate_symbol('rules')
-    html = htmlgrammar.generate_symbol('bodyelements')
+    html = htmlgrammar.generate_symbol('xsselements')
 
     htmlctx = {
         'htmlvars': [],
@@ -355,11 +354,13 @@ def generate_html_sample(template, htmlgrammar, cssgrammar):
     html = html.replace("\r", "")
     if bool(random.getrandbits(1)):
         html = html.replace('"', '\\\"')
+    if bool(random.getrandbits(1)):
+        html = "<math>" + html
     result = result.replace('<htmlfuzzer>', html)
 
     return result
 
-def generate_new_sample(template, htmlgrammar, cssgrammar, outfile):
+def generate_new_sample(template, htmlgrammar, outfile):
     """Parses grammar rules from string.
 
     Args:
@@ -370,7 +371,7 @@ def generate_new_sample(template, htmlgrammar, cssgrammar, outfile):
       A string containing sample data.
     """
 
-    result = generate_html_sample(template, htmlgrammar, cssgrammar)
+    result = generate_html_sample(template, htmlgrammar)
     
     if result is not None:
         print('Writing a sample to ' + outfile)
@@ -390,12 +391,12 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'template.html'))
+    f = open(os.path.join(grammar_dir, 'xss_template.html'))
     template = f.read()
     f.close()
 
     htmlgrammar = Grammar()
-    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
+    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'xss_html.txt'))
     # CheckGrammar(htmlgrammar)
     if err > 0:
         print('There were errors parsing grammar')
@@ -411,7 +412,7 @@ def generate_samples(grammar_dir, outfiles):
     htmlgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
-        generate_new_sample(template, htmlgrammar, cssgrammar, outfile)
+        generate_new_sample(template, htmlgrammar, outfile)
 
 
 def get_option(option_name):
