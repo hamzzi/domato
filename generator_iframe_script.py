@@ -22,12 +22,13 @@ import os
 import re
 import random
 import sys
-import yaml
+
+from bs4 import BeautifulSoup
 
 # from grammar import Grammar
 from tools.domato.grammar import Grammar
 
-_N_MAIN_LINES = 10
+_N_MAIN_LINES = 100
 _N_EVENTHANDLER_LINES = 50
 
 _N_ADDITIONAL_HTMLVARS = 5
@@ -321,7 +322,7 @@ def check_grammar(grammar):
                 print('No creators for type ' + tagname)
 
 
-def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
+def generate_html_sample(template, htmlgrammar):
     """Parses grammar rules from string.
 
     Args:
@@ -336,8 +337,7 @@ def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
 
     result = template
 
-    css = cssgrammar.generate_symbol('rules')
-    html = htmlgrammar.generate_symbol('bodyelements')
+    html = htmlgrammar.generate_symbol('xsselements')
 
     htmlctx = {
         'htmlvars': [],
@@ -345,32 +345,19 @@ def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
         'svgvarctr': 0,
         'htmlvargen': ''
     }
-    html = re.sub(
-        r'<[a-zA-Z0-9_-]+ ',
-        lambda match: add_html_ids(match, htmlctx),
-        html
-    )
+    # html = re.sub(
+    #     r'<[a-zA-Z0-9_-]+ ',
+    #     lambda match: add_html_ids(match, htmlctx),
+    #     html
+    # )
     generate_html_elements(htmlctx, _N_ADDITIONAL_HTMLVARS)
+    html = html.replace("\n", "")
+    html = html.replace("\r", "")
 
-    result = result.replace('<cssfuzzer>', css)
     result = result.replace('<htmlfuzzer>', html)
-
-    handlers = False
-    while '<jsfuzzer>' in result:
-        numlines = _N_MAIN_LINES
-        if handlers:
-            numlines = _N_EVENTHANDLER_LINES
-        else:
-            handlers = True
-        result = result.replace(
-            '<jsfuzzer>',
-            generate_function_body(jsgrammar, htmlctx, numlines),
-            1
-        )
-
     return result
 
-def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar, outfile):
+def generate_new_sample(template, htmlgrammar, outfile):
     """Parses grammar rules from string.
 
     Args:
@@ -381,13 +368,47 @@ def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar, outfile):
       A string containing sample data.
     """
 
-    html = generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar)
+    child = generate_html_sample(template, htmlgrammar)
+    if bool(random.getrandbits(1)):
+        child = "<math>" + child
+    # child = child.replace("\"", "'")
+    # result = f'<iframe sandbox="allow-modals" src="data:text/html,{child}"></iframe>'
+    # result = f'<iframe sandbox="allow-modals" src="http://127.0.0.1:8000/{os.path.basename(child_outfile)}"></iframe>'
 
-    if html is not None:
+    child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
+    if child is not None:
+        print('Writing a sample to ' + child_outfile)
+        try:
+            f = open(child_outfile, 'w')
+            f.write(child)
+            f.close()
+        except IOError:
+            print('Error writing to output')
+
+    html = "<iframe></iframe>"
+    soup = BeautifulSoup(html, 'html.parser')
+    # soup.iframe['sandbox'] = ["allow-modals", "allow-scripts"]
+    # soup.iframe['sandbox'] = ["allow-modals"]
+    # sandbox = ["allow-forms", "allow-modals", "allow-orientation-lock", "allow-pointer-lock", "allow-popups", "allow-popups-to-escape-sandbox", "allow-presentation", "allow-same-origin", "allow-scripts", "allow-top-navigation", "allow-top-navigation-by-user-activation"]
+    sandbox = ["allow-forms", "allow-modals", "allow-orientation-lock", "allow-pointer-lock", "allow-popups", "allow-popups-to-escape-sandbox", "allow-presentation", "allow-same-origin", "allow-top-navigation", "allow-top-navigation-by-user-activation"]
+    length = len(sandbox)
+    count = random.randrange(length + 1)
+    arr = random.sample(sandbox, count)
+    soup.iframe['sandbox'] = arr
+    
+    if bool(random.getrandbits(1)):
+        soup.iframe['src'] = f'data:text/html,{child}'
+    else:
+        soup.iframe['srcdoc'] = f'{child}'
+
+    
+    result = str(soup)
+    
+    if result is not None:
         print('Writing a sample to ' + outfile)
         try:
             f = open(outfile, 'w')
-            f.write(html)
+            f.write(result)
             f.close()
         except IOError:
             print('Error writing to output')
@@ -401,12 +422,12 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'html_template.html'))
+    f = open(os.path.join(grammar_dir, 'xss_template.html'))
     template = f.read()
     f.close()
 
     htmlgrammar = Grammar()
-    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
+    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'xss_html.txt'))
     # CheckGrammar(htmlgrammar)
     if err > 0:
         print('There were errors parsing grammar')
@@ -419,20 +440,10 @@ def generate_samples(grammar_dir, outfiles):
         print('There were errors parsing grammar')
         return
 
-    jsgrammar = Grammar()
-    err = jsgrammar.parse_from_file(os.path.join(grammar_dir, 'js.txt'))
-    # CheckGrammar(jsgrammar)
-    if err > 0:
-        print('There were errors parsing grammar')
-        return
-
-    # JS and HTML grammar need access to CSS grammar.
-    # Add it as import
     htmlgrammar.add_import('cssgrammar', cssgrammar)
-    jsgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
-        generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar, outfile)
+        generate_new_sample(template, htmlgrammar, outfile)
 
 
 def get_option(option_name):

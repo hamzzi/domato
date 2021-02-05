@@ -354,9 +354,11 @@ def generate_html_sample(template, htmlgrammar):
     html = html.replace("\r", "")
     if bool(random.getrandbits(1)):
         html = html.replace('"', '\\\"')
-    if bool(random.getrandbits(1)):
-        html = "<math>" + html
+
     result = result.replace('<htmlfuzzer>', html)
+
+    if bool(random.getrandbits(1)):
+        result = "<math>" + result
 
     return result
 
