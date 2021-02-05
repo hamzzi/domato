@@ -321,7 +321,7 @@ def check_grammar(grammar):
                 print('No creators for type ' + tagname)
 
 
-def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
+def generate_html_sample(template, htmlgrammar, cssgrammar):
     """Parses grammar rules from string.
 
     Args:
@@ -345,32 +345,21 @@ def generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar):
         'svgvarctr': 0,
         'htmlvargen': ''
     }
-    html = re.sub(
-        r'<[a-zA-Z0-9_-]+ ',
-        lambda match: add_html_ids(match, htmlctx),
-        html
-    )
+    # html = re.sub(
+    #     r'<[a-zA-Z0-9_-]+ ',
+    #     lambda match: add_html_ids(match, htmlctx),
+    #     html
+    # )
     generate_html_elements(htmlctx, _N_ADDITIONAL_HTMLVARS)
-
-    result = result.replace('<cssfuzzer>', css)
+    html = html.replace("\n", "")
+    html = html.replace("\r", "")
+    if bool(random.getrandbits(1)):
+        html = html.replace('"', '\\\"')
     result = result.replace('<htmlfuzzer>', html)
-
-    handlers = False
-    while '<jsfuzzer>' in result:
-        numlines = _N_MAIN_LINES
-        if handlers:
-            numlines = _N_EVENTHANDLER_LINES
-        else:
-            handlers = True
-        result = result.replace(
-            '<jsfuzzer>',
-            generate_function_body(jsgrammar, htmlctx, numlines),
-            1
-        )
 
     return result
 
-def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, cssgrammar, jsgrammar, outfile):
+def generate_new_sample(template, htmlgrammar, cssgrammar, outfile):
     """Parses grammar rules from string.
 
     Args:
@@ -381,51 +370,8 @@ def generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, 
       A string containing sample data.
     """
 
-    child = generate_new_child_sample(template, htmlgrammar, cssgrammar, jsgrammar)
-
-    result = iframe_template
-    iframe = '<iframe name="target_iframe"'
-    for attribute in iframe_grammar["attributes"]:
-        if attribute == "sandbox":
-            length = len(iframe_grammar["attributes"][attribute])
-            count = random.randrange(length + 1)
-
-            # if count > 0:
-            # print(f"{count}/{length}")
-            arr = random.sample(iframe_grammar["attributes"][attribute], count)
-            # if "allow-scripts" not in arr:
-            #     arr.append("allow-scripts")
-            iframe = iframe + f' {attribute}="{" ".join(arr)}"'
-            # iframe = iframe + f' {attribute}="allow-scripts"'
-
-        else:
-            # skip attribute
-            if bool(random.getrandbits(1)):
-                continue
-
-            iframe = iframe + f' {attribute}="{random.choice(iframe_grammar["attributes"][attribute])}"'
-
-    # src / srcdoc
-    if bool(random.getrandbits(1)):
-        child = child.replace('"', "&quot;")
-        iframe = iframe + f' srcdoc="{child}"'
-
-    else:
-        child_outfile = outfile.rsplit(".", 1)[0] + "-child.html"
-        iframe = iframe + f' src="{os.path.basename(child_outfile)}"'
-
-        if child is not None:
-            print('Writing a sample to ' + child_outfile)
-            try:
-                f = open(child_outfile, 'w')
-                f.write(child)
-                f.close()
-            except IOError:
-                print('Error writing to output')
-
-    iframe = iframe + "></iframe>"
-    result = result.replace('<iframefuzzer>', iframe)
-
+    result = generate_html_sample(template, htmlgrammar, cssgrammar)
+    
     if result is not None:
         print('Writing a sample to ' + outfile)
         try:
@@ -444,16 +390,9 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'iframe_template.html'))
-    iframe_template = f.read()
-    f.close()
-
     f = open(os.path.join(grammar_dir, 'template.html'))
     template = f.read()
     f.close()
-
-    with open(os.path.join(grammar_dir, 'iframe.yaml')) as f:
-        iframe_grammar = yaml.load(f)
 
     htmlgrammar = Grammar()
     err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
@@ -469,20 +408,10 @@ def generate_samples(grammar_dir, outfiles):
         print('There were errors parsing grammar')
         return
 
-    jsgrammar = Grammar()
-    err = jsgrammar.parse_from_file(os.path.join(grammar_dir, 'js.txt'))
-    # CheckGrammar(jsgrammar)
-    if err > 0:
-        print('There were errors parsing grammar')
-        return
-
-    # JS and HTML grammar need access to CSS grammar.
-    # Add it as import
     htmlgrammar.add_import('cssgrammar', cssgrammar)
-    jsgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
-        generate_new_sample(iframe_template, template, iframe_grammar, htmlgrammar, cssgrammar, jsgrammar, outfile)
+        generate_new_sample(template, htmlgrammar, cssgrammar, outfile)
 
 
 def get_option(option_name):

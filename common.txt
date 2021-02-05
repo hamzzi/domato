@@ -315,6 +315,6 @@
 <challenge_trigger_html_src> = data:text/javascript,<challenge_trigger_log>
 <challenge_trigger_html_srcdoc> = <lt>script<gt><challenge_trigger_log><lt>/script<gt>
 
-<challenge_trigger_js_function> = function () {<challenge_trigger_log>}()
+<challenge_trigger_js_function> = function () {<xss_payload>}()
 
 <challenge_trigger_exception> = <challenge_trigger_log>

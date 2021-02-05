@@ -13,6 +13,7 @@
 
 
 !include common.txt
+!include xss-payload.txt
 
 <framesrc> = x
 <framesrc> = data:text/html,foo
@@ -55,7 +56,11 @@
 
 <attributes> = <attribute> <attribute> <attribute> <attribute> <attribute>
 
-<bodyelements> = <newline><element><newline><element><newline><HTMLIFrameElement><newline><element><newline><element><newline>
+#<bodyelements> = <newline><element><newline><element><newline><HTMLIFrameElement><newline><element><newline><element><newline>
+<bodyelements> = <newline><xss_payload><newline>
+<bodyelements> = <newline><element><newline><xss_payload><newline>
+<bodyelements> = <newline><xss_payload><newline><element><newline>
+<bodyelements> = <newline><element><newline><xss_payload><newline><element><newline>
 <headelements> = <htmlsafestring min=32 max=126>
 
 <innerelements nonrecursive=true p=0.5> = <htmlsafestring min=32 max=126>
@@ -159,12 +164,12 @@
 <mediachild> = <HTMLTrackElement>
 <mediachild> = <element>
 
-<eventhandler> = eventhandler1()
-<eventhandler> = eventhandler2()
+#<eventhandler> = eventhandler1()
+#<eventhandler> = eventhandler2()
 #<eventhandler> = eventhandler3()
 #<eventhandler> = eventhandler4()
 #<eventhandler> = eventhandler5()
-#<eventhandler> = <challenge_trigger_js_function>
+<eventhandler> = <challenge_trigger_js_function>
 
 <element> = <HTMLAnchorElement>
 #<element> = <HTMLAppletElement>
