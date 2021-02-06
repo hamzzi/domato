@@ -334,7 +334,11 @@ def generate_html_sample(template, htmlgrammar):
       A string containing sample data.
     """
 
-    result = template
+    if bool(random.getrandbits(1)):
+        result = template
+    else:
+        with open("tools/domato/xss_template_copy.html") as f:
+            result = f.read()
 
     html = htmlgrammar.generate_symbol('xsselements')
 
@@ -356,9 +360,6 @@ def generate_html_sample(template, htmlgrammar):
         html = html.replace('"', '\\\"')
 
     result = result.replace('<htmlfuzzer>', html)
-
-    if bool(random.getrandbits(1)):
-        result = "<math>" + result
 
     return result
 
