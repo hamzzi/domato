@@ -18,13 +18,8 @@
 !include xss-payload.txt
 !include cheat_sheet.txt
 
-<iframe_script> = <trigger>
-<iframe_script> = <trigger_src>
-<iframe_script> = <elements><trigger>
-<iframe_script> = <trigger><elements>
-<iframe_script> = <elements><trigger><elements>
+<iframe_script> = <bodyelements>
+<iframe_script> = <element>
+<iframe_script> = <trigger_code>
 
 <customhandler> = <trigger>
-
-#<elements> = <bodyelements>
-<elements> = <element>
