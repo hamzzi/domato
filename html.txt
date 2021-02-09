@@ -13,11 +13,9 @@
 
 
 !include common.txt
-!include xss-payload.txt
 
 <framesrc> = x
 <framesrc> = data:text/html,foo
-<framesrc> = data:text/html,<xss_payload>
 
 <attribute_imgsrc> = src="<imgsrc>"
 <attribute_videosrc> = src="<videosrc>"
@@ -56,10 +54,10 @@
 
 <attributes> = <attribute> <attribute> <attribute> <attribute> <attribute>
 
-<bodyelements> = <newline><element><newline><element><newline><HTMLIFrameElement><newline><element><newline><element><newline>
+<bodyelements> = <newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline><element><newline>
+<headelements> = <htmlsafestring min=32 max=126>
 
 <innerelements nonrecursive=true p=0.5> = <htmlsafestring min=32 max=126>
-<innerelements> = <newline><attributestring><newline>
 <innerelements> = <newline><element><newline>
 <innerelements> = <newline><element><newline><element><newline>
 
@@ -159,12 +157,11 @@
 <mediachild> = <HTMLTrackElement>
 <mediachild> = <element>
 
-#<eventhandler> = eventhandler1()
-#<eventhandler> = eventhandler2()
-#<eventhandler> = eventhandler3()
-#<eventhandler> = eventhandler4()
-#<eventhandler> = eventhandler5()
-<eventhandler> = <xss_payload>
+<eventhandler> = eventhandler1()
+<eventhandler> = eventhandler2()
+<eventhandler> = eventhandler3()
+<eventhandler> = eventhandler4()
+<eventhandler> = eventhandler5()
 
 <element> = <HTMLAnchorElement>
 #<element> = <HTMLAppletElement>
@@ -376,7 +373,7 @@
 <attribute> = <attribute_mode>
 <attribute> = <attribute_multiple>
 <attribute> = <attribute_muted>
-#<attribute> = <attribute_name>
+<attribute> = <attribute_name>
 <attribute> = <attribute_nohref>
 <attribute> = <attribute_nonce>
 <attribute> = <attribute_noresize>
@@ -459,11 +456,11 @@
 <attribute> = <attribute_width>
 <attribute> = <attribute_wrap>
 
-<attribute> = name="click_me" <attribute_eventhandler>
-<attribute> = name="click_me" <attribute_eventhandler>
-<attribute> = name="click_me" <attribute_eventhandler>
-<attribute> = name="click_me" <attribute_eventhandler>
-<attribute> = name="click_me" <attribute_eventhandler>
+<attribute> = <attribute_eventhandler>
+<attribute> = <attribute_eventhandler>
+<attribute> = <attribute_eventhandler>
+<attribute> = <attribute_eventhandler>
+<attribute> = <attribute_eventhandler>
 <attribute> = <attribute_eventhandler>
 <attribute> = <attribute_eventhandler>
 <attribute> = <attribute_eventhandler>
@@ -711,7 +708,7 @@
 <attribute_height> = height="<height_value>"
 <attribute_hidden> = hidden="<hidden_value>"
 <attribute_high> = high="<high_value>"
-<attribute_href> = name="click_me" href="<href_value>"
+<attribute_href> = href="<href_value>"
 <attribute_hreflang> = hreflang="<hreflang_value>"
 <attribute_hspace> = hspace="<hspace_value>"
 <attribute_http-equiv> = http-equiv="<http-equiv_value>"

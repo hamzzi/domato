@@ -22,13 +22,11 @@ import os
 import re
 import random
 import sys
-import yaml
 
-# from grammar import Grammar
-from tools.domato.grammar import Grammar
+from grammar import Grammar
 
-_N_MAIN_LINES = 100
-_N_EVENTHANDLER_LINES = 50
+_N_MAIN_LINES = 1000
+_N_EVENTHANDLER_LINES = 500
 
 _N_ADDITIONAL_HTMLVARS = 5
 
@@ -321,7 +319,7 @@ def check_grammar(grammar):
                 print('No creators for type ' + tagname)
 
 
-def generate_html_sample(template, htmlgrammar):
+def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar):
     """Parses grammar rules from string.
 
     Args:
@@ -334,13 +332,10 @@ def generate_html_sample(template, htmlgrammar):
       A string containing sample data.
     """
 
-    if bool(random.getrandbits(1)):
-        result = template
-    else:
-        with open("tools/domato/xss_template_copy.html") as f:
-            result = f.read()
+    result = template
 
-    html = htmlgrammar.generate_symbol('xsselements')
+    css = cssgrammar.generate_symbol('rules')
+    html = htmlgrammar.generate_symbol('bodyelements')
 
     htmlctx = {
         'htmlvars': [],
@@ -348,50 +343,31 @@ def generate_html_sample(template, htmlgrammar):
         'svgvarctr': 0,
         'htmlvargen': ''
     }
-    # html = re.sub(
-    #     r'<[a-zA-Z0-9_-]+ ',
-    #     lambda match: add_html_ids(match, htmlctx),
-    #     html
-    # )
+    html = re.sub(
+        r'<[a-zA-Z0-9_-]+ ',
+        lambda match: add_html_ids(match, htmlctx),
+        html
+    )
     generate_html_elements(htmlctx, _N_ADDITIONAL_HTMLVARS)
-    html = html.replace("\n", "")
-    html = html.replace("\r", "")
-    if bool(random.getrandbits(1)):
-        html = html.replace('"', '\\\"')
-    else:
-        arr = list(html)
-        for i in range(len(arr)):
-            if arr[i] == '"' or arr[i] == '\'':
-                if random.random() > 0.95:
-                    arr[i] = " "
-        html = ''.join(arr)
 
+    result = result.replace('<cssfuzzer>', css)
     result = result.replace('<htmlfuzzer>', html)
+
+    handlers = False
+    while '<jsfuzzer>' in result:
+        numlines = _N_MAIN_LINES
+        if handlers:
+            numlines = _N_EVENTHANDLER_LINES
+        else:
+            handlers = True
+        result = result.replace(
+            '<jsfuzzer>',
+            generate_function_body(jsgrammar, htmlctx, numlines),
+            1
+        )
 
     return result
 
-def generate_new_sample(template, htmlgrammar, outfile):
-    """Parses grammar rules from string.
-
-    Args:
-      template: A template string.
-      grammar: Grammar for generating iframe.
-
-    Returns:
-      A string containing sample data.
-    """
-
-    result = generate_html_sample(template, htmlgrammar)
-    
-    if result is not None:
-        print('Writing a sample to ' + outfile)
-        try:
-            f = open(outfile, 'w')
-            f.write(result)
-            f.close()
-        except IOError:
-            print('Error writing to output')
-    
 
 def generate_samples(grammar_dir, outfiles):
     """Generates a set of samples and writes them to the output files.
@@ -401,12 +377,12 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'xss_template.html'))
+    f = open(os.path.join(grammar_dir, 'template.html'))
     template = f.read()
     f.close()
 
     htmlgrammar = Grammar()
-    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'xss_html.txt'))
+    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
     # CheckGrammar(htmlgrammar)
     if err > 0:
         print('There were errors parsing grammar')
@@ -419,10 +395,30 @@ def generate_samples(grammar_dir, outfiles):
         print('There were errors parsing grammar')
         return
 
+    jsgrammar = Grammar()
+    err = jsgrammar.parse_from_file(os.path.join(grammar_dir, 'js.txt'))
+    # CheckGrammar(jsgrammar)
+    if err > 0:
+        print('There were errors parsing grammar')
+        return
+
+    # JS and HTML grammar need access to CSS grammar.
+    # Add it as import
     htmlgrammar.add_import('cssgrammar', cssgrammar)
+    jsgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
-        generate_new_sample(template, htmlgrammar, outfile)
+        result = generate_new_sample(template, htmlgrammar, cssgrammar,
+                                     jsgrammar)
+
+        if result is not None:
+            print('Writing a sample to ' + outfile)
+            try:
+                f = open(outfile, 'w')
+                f.write(result)
+                f.close()
+            except IOError:
+                print('Error writing to output')
 
 
 def get_option(option_name):
