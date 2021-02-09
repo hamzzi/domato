@@ -337,7 +337,7 @@ def generate_html_sample(template, htmlgrammar, cssgrammar, jsgrammar):
 
     result = template
 
-    css = cssgrammar.generate_symbol('rules')
+    # css = cssgrammar.generate_symbol('rules')
     html = htmlgrammar.generate_symbol('iframe_script')
 
     htmlctx = {
