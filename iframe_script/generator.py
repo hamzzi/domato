@@ -338,7 +338,7 @@ def generate_html_sample(template, htmlgrammar, cssgrammar, jsgrammar):
     result = template
 
     css = cssgrammar.generate_symbol('rules')
-    html = htmlgrammar.generate_symbol('iframeelements')
+    html = htmlgrammar.generate_symbol('iframe_script')
 
     htmlctx = {
         'htmlvars': [],
@@ -438,12 +438,12 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'iframe_script.html'))
+    f = open(os.path.join(grammar_dir, 'template.html'))
     template = f.read()
     f.close()
 
     htmlgrammar = Grammar()
-    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'iframe_script_html.txt'))
+    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'custom.txt'))
     # CheckGrammar(htmlgrammar)
     if err > 0:
         print('There were errors parsing grammar')

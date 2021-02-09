@@ -337,10 +337,10 @@ def generate_html_sample(template, htmlgrammar):
     if bool(random.getrandbits(1)):
         result = template
     else:
-        with open("tools/domato/xss_template_copy.html") as f:
+        with open("tools/domato/copy_paste/template2.html") as f:
             result = f.read()
 
-    html = htmlgrammar.generate_symbol('xsselements')
+    html = htmlgrammar.generate_symbol('copy_paste')
 
     htmlctx = {
         'htmlvars': [],
@@ -401,12 +401,12 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    f = open(os.path.join(grammar_dir, 'xss_template.html'))
+    f = open(os.path.join(grammar_dir, 'template.html'))
     template = f.read()
     f.close()
 
     htmlgrammar = Grammar()
-    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'xss_html.txt'))
+    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'custom.txt'))
     # CheckGrammar(htmlgrammar)
     if err > 0:
         print('There were errors parsing grammar')
