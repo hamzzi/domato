@@ -24,7 +24,7 @@
 <copy_paste> = <trigger><elements>
 <copy_paste> = <elements><trigger><elements>
 
-<customhandler> = <trigger>
+<customhandler> = <trigger_function>
 
 <xssblock> = <lt>xss style=display:block<gt>
 <evilblock> = <lt>noscript<gt>

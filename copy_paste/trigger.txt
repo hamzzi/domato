@@ -2,7 +2,7 @@
 <trigger> = <xss_payload>
 <trigger> = alert(1)
 
-<trigger_function> = function () {<trigger>}()
+<trigger_function> = function () {<trigger_code>}()
 
 <trigger_code> = <trigger>
 <trigger_code> = window.opener.eval('<trigger>')

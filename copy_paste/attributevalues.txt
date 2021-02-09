@@ -413,6 +413,7 @@
 <high_value> = <fuzzint>
 
 <href_value> = <attributestring>
+<href_value> = <trigger_src>
 
 <hreflang_value> = <lang_value>
 

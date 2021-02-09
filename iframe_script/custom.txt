@@ -22,4 +22,4 @@
 <iframe_script> = <element>
 <iframe_script> = <trigger_code>
 
-<customhandler> = <trigger>
+<customhandler> = <trigger_function>
