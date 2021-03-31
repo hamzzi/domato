@@ -1,5 +1,5 @@
 # challenge trigger
-<trigger> = <xss_payload>
+#<trigger> = <xss_payload>
 <trigger> = alert(1)
 
 <trigger_function> = function () {<trigger_code>}()

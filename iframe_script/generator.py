@@ -456,15 +456,16 @@ def generate_samples(grammar_dir, outfiles):
         print('There were errors parsing grammar')
         return
 
-    jsgrammar = Grammar()
-    err = jsgrammar.parse_from_file(os.path.join(grammar_dir, 'js.txt'))
-    # CheckGrammar(jsgrammar)
-    if err > 0:
-        print('There were errors parsing grammar')
-        return
+    jsgrammar = None
+    # jsgrammar = Grammar()
+    # err = jsgrammar.parse_from_file(os.path.join(grammar_dir, 'js.txt'))
+    # # CheckGrammar(jsgrammar)
+    # if err > 0:
+    #     print('There were errors parsing grammar')
+    #     return
 
     htmlgrammar.add_import('cssgrammar', cssgrammar)
-    jsgrammar.add_import('cssgrammar', cssgrammar)
+    # jsgrammar.add_import('cssgrammar', cssgrammar)
 
     for outfile in outfiles:
         generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar, outfile)
