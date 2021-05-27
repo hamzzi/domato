@@ -23,10 +23,10 @@ import re
 import random
 import sys
 
-from grammar import Grammar
+from tools.domato.grammar import Grammar
 
-_N_MAIN_LINES = 1000
-_N_EVENTHANDLER_LINES = 500
+_N_MAIN_LINES = 20
+_N_EVENTHANDLER_LINES = 10
 
 _N_ADDITIONAL_HTMLVARS = 5
 
@@ -334,7 +334,7 @@ def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar):
 
     result = template
 
-    css = cssgrammar.generate_symbol('rules')
+    # css = cssgrammar.generate_symbol('rules')
     html = htmlgrammar.generate_symbol('bodyelements')
 
     htmlctx = {
@@ -350,21 +350,21 @@ def generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar):
     )
     generate_html_elements(htmlctx, _N_ADDITIONAL_HTMLVARS)
 
-    result = result.replace('<cssfuzzer>', css)
+    # result = result.replace('<cssfuzzer>', css)
     result = result.replace('<htmlfuzzer>', html)
 
-    handlers = False
-    while '<jsfuzzer>' in result:
-        numlines = _N_MAIN_LINES
-        if handlers:
-            numlines = _N_EVENTHANDLER_LINES
-        else:
-            handlers = True
-        result = result.replace(
-            '<jsfuzzer>',
-            generate_function_body(jsgrammar, htmlctx, numlines),
-            1
-        )
+    # handlers = False
+    # while '<jsfuzzer>' in result:
+    #     numlines = _N_MAIN_LINES
+    #     if handlers:
+    #         numlines = _N_EVENTHANDLER_LINES
+    #     else:
+    #         handlers = True
+    #     result = result.replace(
+    #         '<jsfuzzer>',
+    #         generate_function_body(jsgrammar, htmlctx, numlines),
+    #         1
+    #     )
 
     return result
 
@@ -421,6 +421,48 @@ def generate_samples(grammar_dir, outfiles):
                 print('Error writing to output')
 
 
+def generate_one(grammar_dir):
+    """Generates a set of samples and writes them to the output files.
+
+    Args:
+      grammar_dir: directory to load grammar files from.
+      outfiles: A list of output filenames.
+    """
+
+    f = open(os.path.join(grammar_dir, 'template.html'))
+    template = f.read()
+    f.close()
+
+    htmlgrammar = Grammar()
+    err = htmlgrammar.parse_from_file(os.path.join(grammar_dir, 'html.txt'))
+    # CheckGrammar(htmlgrammar)
+    if err > 0:
+        print('There were errors parsing grammar')
+        return
+
+    cssgrammar = Grammar()
+    err = cssgrammar.parse_from_file(os.path.join(grammar_dir, 'css.txt'))
+    # CheckGrammar(cssgrammar)
+    if err > 0:
+        print('There were errors parsing grammar')
+        return
+
+    jsgrammar = Grammar()
+    err = jsgrammar.parse_from_file(os.path.join(grammar_dir, 'js.txt'))
+    # CheckGrammar(jsgrammar)
+    if err > 0:
+        print('There were errors parsing grammar')
+        return
+
+    # JS and HTML grammar need access to CSS grammar.
+    # Add it as import
+    htmlgrammar.add_import('cssgrammar', cssgrammar)
+    jsgrammar.add_import('cssgrammar', cssgrammar)
+
+    result = generate_new_sample(template, htmlgrammar, cssgrammar, jsgrammar)
+    return result
+
+
 def get_option(option_name):
     for i in range(len(sys.argv)):
         if (sys.argv[i] == option_name) and ((i + 1) < len(sys.argv)):
@@ -467,6 +509,10 @@ def main():
         print("Usage:")
         print("\tpython generator.py <output file>")
         print("\tpython generator.py --output_dir <output directory> --no_of_files <number of output files>")
+
+def generate():
+    fuzzer_dir = os.path.dirname(__file__)
+    return generate_one(fuzzer_dir)
 
 
 if __name__ == '__main__':

@@ -159,9 +159,9 @@
 
 <eventhandler> = eventhandler1()
 <eventhandler> = eventhandler2()
-<eventhandler> = eventhandler3()
-<eventhandler> = eventhandler4()
-<eventhandler> = eventhandler5()
+#<eventhandler> = eventhandler3()
+#<eventhandler> = eventhandler4()
+#<eventhandler> = eventhandler5()
 
 <element> = <HTMLAnchorElement>
 #<element> = <HTMLAppletElement>
