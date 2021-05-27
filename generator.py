@@ -25,7 +25,7 @@ import sys
 
 from tools.domato.grammar import Grammar
 
-_N_MAIN_LINES = 20
+_N_MAIN_LINES = 10
 _N_EVENTHANDLER_LINES = 10
 
 _N_ADDITIONAL_HTMLVARS = 5
